@@ -1,6 +1,6 @@
 Page({
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    background: ['http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg', 'http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg', 'http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg'],
     indicatorDots: false, //指示点
     vertical: false,
     autoplay: true, //自动播放
