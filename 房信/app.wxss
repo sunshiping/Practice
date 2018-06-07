@@ -1,3 +1,4 @@
+@import "./pages/common/css/weui.wxss";
 /**app.wxss**/
 .container {
   width: 100%;

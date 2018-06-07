@@ -9,18 +9,88 @@
         </block>
       </swiper>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-    
+    <view class="page__bd main_box">
+      <view class="weui-grids">
+        <block wx:for="{{grids}}" wx:key="*this">
+          <navigator url="{{item.url}}" class="weui-grid" hover-class="weui-grid_active">
+            <image class="weui-grid__icon" src="./../../images/icon_tabbar.png" />
+            <view class="weui-grid__label">{{item.name}}</view>
+          </navigator>
+        </block>
       </view>
-      <view class="weui-flex__item">
-   
+    </view>
+    <view class="weui-panel weui-panel_access house-con">
+      <view class="weui-panel__hd">热门房源</view>
+      <view class="weui-panel__bd house-con_list">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">中间层三居室，户型方正，采光好，明厨明卫，南北通透</view>
+            <view class="weui-media-box__desc">3室1厅/80平/南北通透/奥林匹克花园第…</view>
+            <view class="button-sp-area label-list">
+              <button class="weui-btn mini-btn" type="primary" size="mini">地铁</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">满五年</button>
+              <button class="weui-btn mini-btn" type="warn" size="mini">随时看房</button>
+            </view>
+            <view class="price">750万</view>
+            <view class="univalent">123456元/平</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">中间层三居室，户型方正，采光好，明厨明卫，南北通透</view>
+            <view class="weui-media-box__desc">3室1厅/80平/南北通透/奥林匹克花园第…</view>
+            <view class="button-sp-area label-list">
+              <button class="weui-btn mini-btn" type="primary" size="mini">地铁</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">满五年</button>
+              <button class="weui-btn mini-btn" type="warn" size="mini">随时看房</button>
+            </view>
+            <view class="price">750万</view>
+            <view class="univalent">123456元/平</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">中间层三居室，户型方正，采光好，明厨明卫，南北通透</view>
+            <view class="weui-media-box__desc">3室1厅/80平/南北通透/奥林匹克花园第…</view>
+            <view class="button-sp-area label-list">
+              <button class="weui-btn mini-btn" type="primary" size="mini">地铁</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">满五年</button>
+              <button class="weui-btn mini-btn" type="warn" size="mini">随时看房</button>
+            </view>
+            <view class="price">750万</view>
+            <view class="univalent">123456元/平</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="http://7xsuhd.com1.z0.glb.clouddn.com/house_146770749014.jpg" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">中间层三居室，户型方正，采光好，明厨明卫，南北通透</view>
+            <view class="weui-media-box__desc">3室1厅/80平/南北通透/奥林匹克花园第…</view>
+            <view class="button-sp-area label-list">
+              <button class="weui-btn mini-btn" type="primary" size="mini">地铁</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">满五年</button>
+              <button class="weui-btn mini-btn" type="warn" size="mini">随时看房</button>
+            </view>
+            <view class="price">750万</view>
+            <view class="univalent">123456元/平</view>
+          </view>
+        </navigator>
       </view>
-      <view class="weui-flex__item">
-    
-      </view>
-      <view class="weui-flex__item">
-      
+      <view class="more-house_btn button-sp-area">
+        <navigator url="/pages/list/list?type=house" hover-class="navigator-hover">
+          <button class="weui-btn" type="primary" plain="true">查看更多房源</button>
+        </navigator>
       </view>
     </view>
   </view>

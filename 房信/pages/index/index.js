@@ -8,7 +8,25 @@ Page({
     interval: 5000,
     duration: 500,
     previousMargin: 0,
-    nextMargin: 0
+    nextMargin: 0,
+    grids: [
+      {
+        name: "二手房",
+        url: '/pages/list/list'
+      },
+      {
+        name: "新房",
+        url: '2222222'
+      },
+      {
+        name: "租房",
+        url: '33333'
+      },
+      {
+        name: "优惠",
+        url: '33333'
+      }
+    ]
   },
   changeProperty: function (e) {
     var propertyName = e.currentTarget.dataset.propertyName
