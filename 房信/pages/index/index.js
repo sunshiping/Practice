@@ -9,22 +9,23 @@ Page({
     duration: 500,
     previousMargin: 0,
     nextMargin: 0,
+    num: 1,
     grids: [
       {
         name: "二手房",
-        url: '/pages/list/list'
+        url: '/pages/list/list?type=house&id=1'
       },
       {
         name: "新房",
-        url: '2222222'
+        url: '/pages/list/list?type=new'
       },
       {
         name: "租房",
-        url: '33333'
+        url: '/pages/list/list?type=rent'
       },
       {
         name: "优惠",
-        url: '33333'
+        url: '/pages/list/list?type=favourable'
       }
     ]
   },
@@ -52,6 +53,12 @@ Page({
   durationChange: function (e) {
     this.setData({
       duration: e.detail.value
+    })
+  },
+  changeType: function (e) {
+    console.log(e);
+    this.setData({
+      num: e.target.dataset.num
     })
   }
 })

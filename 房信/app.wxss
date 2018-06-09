@@ -1,5 +1,7 @@
 @import "./pages/common/css/weui.wxss";
+
 /**app.wxss**/
+
 .container {
   width: 100%;
   height: 100%;
@@ -9,4 +11,20 @@
   justify-content: space-between;
   /* padding: 200rpx 0; */
   box-sizing: border-box;
-} 
+}
+
+.fn-ovh {
+  overflow: hidden;
+}
+
+.fn-flr {
+  float: right;
+}
+
+.fn-fll {
+  float: left;
+}
+
+.active {
+  color: red;
+}

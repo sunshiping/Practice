@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -13,9 +14,16 @@
 }
 
 .userinfo-nickname {
+  font-size: 32rpx;
   color: #aaa;
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 200rpx;
+}
+
+.btn-press {
+  font-size: 28rpx;
+  margin-top: 40rpx;
+  width: 340rpx;
 }

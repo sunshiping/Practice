@@ -20,7 +20,12 @@
       </view>
     </view>
     <view class="weui-panel weui-panel_access house-con">
-      <view class="weui-panel__hd">热门房源</view>
+      <view>推荐房源</view>
+      <view class='oil_s'>
+        <view class='{{num==1?"active":""}}' data-num='1' catchtap='changeType'>新房</view>
+        <view class='{{num==2?"active":""}}' data-num='2' catchtap='changeType'>二手房</view>
+      </view>
+
       <view class="weui-panel__bd house-con_list">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">

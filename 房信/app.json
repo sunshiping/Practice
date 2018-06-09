@@ -35,8 +35,8 @@
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath": "images/icon_API.png",
-        "selectedIconPath": "images/icon_API_HL.png"
+        "iconPath": "images/wechat.png",
+        "selectedIconPath": "images/wechatHL.png"
       }
     ]
   },

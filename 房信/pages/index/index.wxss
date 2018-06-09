@@ -97,6 +97,11 @@ swiper {
   border-left: 0;
 }
 
+.main_box .weui-grids .weui-grid__icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
 .main_box .weui-grid {
   width: 25%;
   padding: 20rpx;
@@ -111,7 +116,10 @@ swiper {
 .house-con {
   padding-bottom: 30rpx;
 }
-
+.house-con .weui-panel__hd{
+  font-size: 30rpx;
+  color: #333;
+}
 .house-con_list .weui-media-box__title {
   font-size: 30rpx;
   line-height: 1.4;
@@ -142,7 +150,7 @@ swiper {
   line-height: 36rpx;
 }
 
-.label-list {
+.house-con_list .label-list {
   height: 45rpx;
   overflow: hidden;
   white-space: nowrap;
