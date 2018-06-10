@@ -60,5 +60,10 @@ Page({
     this.setData({
       num: e.target.dataset.num
     })
+    if(this.data.num == 1){
+      console.log('二手房')
+    }else{
+      console.log('租房')
+    }
   }
 })

@@ -116,9 +116,13 @@ swiper {
 .house-con {
   padding-bottom: 30rpx;
 }
-.house-con .weui-panel__hd{
+
+.house-con .weui-panel__hd {
   font-size: 30rpx;
   color: #333;
+}
+.house-con_list{
+  padding-top: 20rpx;
 }
 .house-con_list .weui-media-box__title {
   font-size: 30rpx;
@@ -178,5 +182,27 @@ swiper {
 
 .house-con .more-house_btn .weui-btn {
   line-height: 2;
+  font-size: 32rpx;
+}
+
+.house-con .weui-media-box {
+  padding: 10rpx 26rpx;
+}
+
+.house-con .weui-media-box .weui-media-box__info {
+  padding-bottom: 0;
+  line-height: inherit;
+}
+
+.house-con .weui-media-box .weui-media-box__info__meta {
+  padding-right: 0;
+  padding-left: 1em;
+  padding-top: 11rpx;
+  color: #333;
+}
+
+.house-con .weui-media-box .weui-media-box__info__meta:first-child {
+  padding-left: 0;
+  padding-top: 0;
   font-size: 32rpx;
 }

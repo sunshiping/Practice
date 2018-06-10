@@ -17,14 +17,14 @@
   overflow: hidden;
 }
 
-.fn-flr {
+.fn-fr {
   float: right;
 }
 
-.fn-fll {
+.fn-fl {
   float: left;
 }
 
 .active {
-  color: red;
+  color: red!important;
 }

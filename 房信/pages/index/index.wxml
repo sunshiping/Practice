@@ -20,11 +20,25 @@
       </view>
     </view>
     <view class="weui-panel weui-panel_access house-con">
-      <view>推荐房源</view>
+      <view class="weui-panel">
+
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta fn-fl">推荐房源</view>
+              <view class='weui-media-box__info__meta fn-fr {{num==2?"active":""}}' data-num='2' catchtap='changeType'>租房</view>
+              <view class='weui-media-box__info__meta fn-fr {{num==1?"active":""}}' data-num='1' catchtap='changeType'>二手房</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view>推荐房源</view>
       <view class='oil_s'>
         <view class='{{num==1?"active":""}}' data-num='1' catchtap='changeType'>新房</view>
         <view class='{{num==2?"active":""}}' data-num='2' catchtap='changeType'>二手房</view>
-      </view>
+      </view> -->
 
       <view class="weui-panel__bd house-con_list">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
