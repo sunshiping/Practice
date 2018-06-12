@@ -110,10 +110,7 @@ Page({
     wx.showNavigationBarLoading() //在标题栏中显示加载
     //模拟加载
     setTimeout(function () {
-      var list = that.data.productArr.push(that.data.productArrNew)
-      that.setData({
-        productArr: list
-      })
+      that.onLoad()
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 3500);
