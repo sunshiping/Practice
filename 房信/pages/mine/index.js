@@ -20,26 +20,34 @@ Page({
               wx.showLoading({
                 title: '登录中'
               })
+            },
+            complete: function () {
+              if (that.data.btnText == '已授权') {
+                that.setData({
+                  btnLoading: true
+                })
+              } else {
+                that.setData({
+                  btnLoading: false
+                })
+              }
+              setTimeout(() => {
+                wx.hideLoading()
+              }, 3000)
             }
           })
         }
-      },
-      complete: function () {
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 3000)
-        // setTimeout(() => {
-        //   wx.reLaunch({
-        //     url: '/pages/index/index'
-        //   })
-        // }, 6000)
       }
     })
   },
   bindGetUserInfo: function (e) {
     this.setData({ btnText: '已授权', btnLoading: true })
+    wx.showLoading({
+      title: '登录中'
+    })
     if (e.detail.userInfo) {
       setTimeout(() => {
+        wx.hideLoading()
         wx.reLaunch({
           url: '/pages/index/index'
         })

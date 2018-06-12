@@ -7,6 +7,6 @@
     <open-data type="userNickName"></open-data>
   </view>
   <view>
-    <button class='btn-press' type='primary' disabled='{{!btnLoading}}' open-type="getUserInfo" loading='{{btnLoading}}' bindgetuserinfo="bindGetUserInfo">{{btnText}}</button>
+    <button class='btn-press' type='primary' disabled='{{btnLoading}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{btnText}}</button>
   </view>
 </view>
