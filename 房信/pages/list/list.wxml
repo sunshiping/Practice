@@ -4,7 +4,7 @@
   </loading> -->
 </view>
 <view class="container_wrap">  
-  <scroll-view bindscroll="scroll" style="height:{{clientHeight}}px;" class="container_wrap" scroll-y="true">
+  <scroll-view bindscroll="scroll" bindscrolltoupper="upper" bindscrolltolower="lower" lower-threshold='200' style="height:{{clientHeight}}px;" class="container_wrap" scroll-y="true">
     <view class="listview">
       <view class="thumbnail" wx:for="{{productArr}}" wx:key="productlist" style="{{arr[index] ?'background:none;background-color:#fff': ''}}">
           <image class="product_image {{arr[index] ? 'loaded':''}}" mode="aspectFit" src="{{arr[index] ?  productArr[index].src : ''}}"></image>

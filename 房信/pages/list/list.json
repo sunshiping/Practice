@@ -1,1 +1,8 @@
-{}
+{
+  "navigationBarTitleText": "列表页",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "backgroundColor": "#F8F8F8"
+}
