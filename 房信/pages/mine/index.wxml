@@ -9,4 +9,7 @@
   <view>
     <button class='btn-press' type='primary' disabled='{{btnLoading}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{btnText}}</button>
   </view>
+   <view>
+    <button class='btn-press' type='default' bindtap='upLoad'>上传头像</button>
+  </view>
 </view>

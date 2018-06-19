@@ -54,5 +54,14 @@ Page({
       }, 1000)
 
     }
+  },
+  upLoad: function (res) {
+    wx.chooseImage({
+      count: 1,
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        console.log(res)
+      }
+    })
   }
 })
