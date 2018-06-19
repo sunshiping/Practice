@@ -70,7 +70,8 @@ Page({
       { src: "https://gtd.alicdn.com/sns_logo/i1/TB1DX3hIpXXXXXIaXXXSutbFXXX.jpg_240x240xz.jpg", Title: '新wechat', RmbPrice: '2000' },
       { src: "https://gtd.alicdn.com/sns_logo/i6/TB1SIYrLXXXXXaAXpXXSutbFXXX.jpg_240x240xz.jpg", Title: '新wechat', RmbPrice: '2000' }]
   },
-  onLoad: function () {
+  onLoad: function (obj) {
+    console.log(obj) //链接传值
     var that = this;
     wx.setNavigationBarTitle({
       title: '房源列表'

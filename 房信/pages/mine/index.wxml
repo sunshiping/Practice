@@ -12,4 +12,7 @@
    <view>
     <button class='btn-press' type='default' bindtap='upLoad'>上传头像</button>
   </view>
+  <view>
+    <button class='btn-press' type='primary' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取电话</button>
+  </view>
 </view>
