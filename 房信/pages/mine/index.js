@@ -42,9 +42,9 @@ Page({
   },
   bindGetUserInfo: function (e) {
     this.setData({ btnText: '已授权', btnLoading: true })
-    wx.showLoading({
-      title: '登录中'
-    })
+    // wx.showLoading({
+    //   title: '登录中'
+    // })
     if (e.detail.userInfo) {
       setTimeout(() => {
         wx.hideLoading()
@@ -68,5 +68,18 @@ Page({
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
-  } 
+  },
+  onShareAppMessage: function (res) {
+    console.log(res)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '个人中心',
+      path: '/pages/list/list?type=house&id=1',
+      desc:'描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述',//描述
+      imageUrl:'https://gtd.alicdn.com/sns_logo/i1/TB124_3NXXXXXasXVXXSutbFXXX.jpg_240x240xz.jpg'
+    }
+  }
 })
