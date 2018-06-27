@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Image, View, Navigator, TouchableOpacity, } from 'react-native';
+import { AppRegistry, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import NavigationBar from './NavigationBar'
+import ListViewTest from './ListViewTest';
+
 export default class LotsOfStyles extends Component {
     constructor(props){
         super(props);
         this.state={
             selectedTab:'tb_popular',
-            number:3
+            number:3,
         }
     }
 
@@ -41,7 +43,9 @@ export default class LotsOfStyles extends Component {
                   renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'red'}]} source={require('./res/images/ic_polular.png')} />}
                   badgeText={this.state.number}
                   onPress={() => this.setState({ selectedTab: 'tb_popular' })}>
-                  <View style={styles.page1}></View>
+                  <View style={styles.page1}>
+                      <ListViewTest/>
+                  </View>
               </TabNavigator.Item>
               <TabNavigator.Item
                   selected={this.state.selectedTab === 'tb_trending'}
@@ -56,8 +60,8 @@ export default class LotsOfStyles extends Component {
                   selected={this.state.selectedTab === 'tb_favorite'}
                   selectedTitleStyle={{color:'red'}}
                   title="收藏"
-                  renderIcon={() => <Image style={styles.image} source={require('./res/images/ic_polular.png')} />}
-                  renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'red'}]} source={require('./res/images/ic_polular.png')} />}
+                  renderIcon={() => <Image style={styles.image} source={require('./res/images/ic_unstar_navbar.png')} />}
+                  renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'red'}]} source={require('./res/images/ic_unstar_navbar.png')} />}
                   onPress={() => this.setState({ selectedTab: 'tb_favorite' })}>
                   <View style={styles.page1}></View>
               </TabNavigator.Item>
@@ -65,8 +69,8 @@ export default class LotsOfStyles extends Component {
                   selected={this.state.selectedTab === 'tb_my'}
                   selectedTitleStyle={{color:'green'}}
                   title="我的"
-                  renderIcon={() => <Image style={styles.image} source={require('./res/images/ic_trending.png')} />}
-                  renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'green'}]} source={require('./res/images/ic_trending.png')} />}
+                  renderIcon={() => <Image style={styles.image} source={require('./res/images/ic_my.png')} />}
+                  renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'green'}]} source={require('./res/images/ic_my.png')} />}
                   onPress={() => this.setState({ selectedTab: 'tb_my' })}>
                   <View style={styles.page2}></View>
               </TabNavigator.Item>
