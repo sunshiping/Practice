@@ -9,6 +9,10 @@ import {
     StyleSheet
 } from 'react-native'
 export default class Page1 extends  Component{
+    static navigationOptions={
+        title:'Page1',
+        headerBackTitle:'返回'
+    }
     render(){
         const {navigation} = this.props;
         return<View style={styles.container}>

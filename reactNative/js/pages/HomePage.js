@@ -10,6 +10,10 @@ import {
 } from 'react-native'
 type Props={};
 export default class HomePage extends  Component<Props>{
+    static navigationOptions={
+        title:'Home',
+        headerBackTitle:'返回'
+    }
     render(){
         const {navigation} =this.props;
         return<View style={styles.container}>
@@ -18,7 +22,10 @@ export default class HomePage extends  Component<Props>{
                 navigation.navigate('Page1')
             }}></Button>
             <Button title="Go To Page2" onPress={()=>{
-                navigation.navigate('Page2')
+                navigation.navigate('Page2',{name:'动态的Page2'})
+            }}></Button>
+            <Button title="Go To Page3" onPress={()=>{
+                navigation.navigate('Page3',{title:'Page345'})
             }}></Button>
         </View>
     }
