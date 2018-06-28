@@ -9,6 +9,7 @@ import {
     RefreshControl,
 } from 'react-native';
 import Toast,{DURATION} from 'react-native-easy-toast';
+import NavigationBar from './NavigationBar'
 var data = {
     'result':[
         {
@@ -132,6 +133,13 @@ export default class ListVewTest extends Component {
         }
         this.onLoad();
     }
+    renderButton(image) {
+        return <TouchableOpacity onPress={()=>{
+            this.props.navigator.pop();
+        }}>
+            <Image style={{width: 22, height: 22,margin:5}} source={image}/>
+        </TouchableOpacity>
+    }
     renderRow(item){
         return<View style={styles.row}>
             <TouchableOpacity onPress={()=>{this.toast.show('你单击了:'+item.fullName,DURATION.LENGTH_SHORT)}}>
@@ -157,6 +165,17 @@ export default class ListVewTest extends Component {
   render() {
     return (
       <View style={styles.container}>
+          <NavigationBar
+              title={'Boy'}
+              // statusBar={{backgroundColor:'#FF6363'}}
+              style={{backgroundColor:'#FF6363'}}
+              leftButton={
+                  this.renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))
+              }
+              rightButton={
+                  this.renderButton(require('./res/images/ic_star.png'))
+              }
+          />
         <ListView
             dataSource={this.state.dataSource}
             renderRow={(item)=>this.renderRow(item)}
@@ -188,7 +207,8 @@ const styles = StyleSheet.create({
         fontSize:18
     },
     row:{
-        height:50
+        height:60,
+        padding:10
     },
     line:{
         height:1,

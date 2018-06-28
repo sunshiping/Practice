@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import NavigationBar from './NavigationBar'
 import ListViewTest from './ListViewTest';
+import FetchTest from './FetchTest'
 
 export default class LotsOfStyles extends Component {
     constructor(props){
@@ -13,27 +13,9 @@ export default class LotsOfStyles extends Component {
         }
     }
 
-    renderButton(image) {
-        return <TouchableOpacity onPress={()=>{
-            this.props.navigator.pop();
-        }}>
-            <Image style={{width: 22, height: 22,margin:5}} source={image}/>
-        </TouchableOpacity>
-    }
   render() {
     return (
       <View style={styles.container}>
-          <NavigationBar
-              title={'Boy'}
-              // statusBar={{backgroundColor:'#FF6363'}}
-              style={{backgroundColor:'#FF6363'}}
-              leftButton={
-                this.renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))
-              }
-              rightButton={
-                  this.renderButton(require('./res/images/ic_star.png'))
-              }
-          />
           <TabNavigator>
               <TabNavigator.Item
                   selected={this.state.selectedTab === 'tb_popular'}
@@ -44,7 +26,7 @@ export default class LotsOfStyles extends Component {
                   badgeText={this.state.number}
                   onPress={() => this.setState({ selectedTab: 'tb_popular' })}>
                   <View style={styles.page1}>
-                      <ListViewTest/>
+                      <FetchTest/>
                   </View>
               </TabNavigator.Item>
               <TabNavigator.Item
@@ -54,7 +36,9 @@ export default class LotsOfStyles extends Component {
                   renderIcon={() => <Image style={styles.image} source={require('./res/images/ic_trending.png')} />}
                   renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'green'}]} source={require('./res/images/ic_trending.png')} />}
                   onPress={() => this.setState({ selectedTab: 'tb_trending' })}>
-                  <View style={styles.page2}></View>
+                  <View style={styles.page2}>
+                      <ListViewTest/>
+                  </View>
               </TabNavigator.Item>
               <TabNavigator.Item
                   selected={this.state.selectedTab === 'tb_favorite'}
