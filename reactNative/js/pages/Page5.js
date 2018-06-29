@@ -8,16 +8,17 @@ import {
     Button,
     StyleSheet
 } from 'react-native'
-export default class Page2 extends  Component{
+export default class Page5 extends  Component{
+    static navigationOptions={
+        title:'Page5',
+        headerBackTitle:'返回'
+    }
     render(){
         const {navigation} = this.props;
         return<View style={styles.container}>
-            <Text style={styles.font}>欢迎来到page2</Text>
-            <Button title="Go Back" onPress={()=>{
-                navigation.goBack()
-            }}></Button>
-            <Button title="Go To Page3" onPress={()=>{
-                navigation.navigate('Page3',{title:'Page345'})
+            <Text style={styles.font}>欢迎来到page5</Text>
+            <Button title="Go Page4" onPress={()=>{
+                navigation.navigate('Page4')
             }}></Button>
         </View>
     }

@@ -12,7 +12,37 @@ type Props={};
 export default class HomePage extends  Component<Props>{
     static navigationOptions={
         title:'Home',
-        headerBackTitle:'返回'
+        // header:(
+        //     <View style={{width:Dimensions.get('window').width,height:64,backgroundColor:'#1B82D1'}}/>
+        // ),
+        headerTitle:(
+            <View style={{width:160,height:20,alignItems:'center'}}>
+                <Text>自定义headerTitle</Text>
+            </View>
+        ),
+        headerBackTitle:'返回',
+        headerTruncatedBackTitle:'回退',
+        headerRight:(
+            <View>
+                <Text>right</Text>
+            </View>
+        ),
+        headerLeft:(
+            <View>
+                <Text>left</Text>
+            </View>
+        ),
+        headerStyle: {
+            backgroundColor:'#FF6363'
+        },
+        headerTitleStyle:{
+            color:'#333'
+        },
+        headerBackTitleStyle:{
+            tintColor:'#E8E8E8'
+        },
+        headerTintColor:'#F33',
+        gesturesEnabled:false,
     }
     render(){
         const {navigation} =this.props;
@@ -27,7 +57,13 @@ export default class HomePage extends  Component<Props>{
             <Button title="Go To Page3" onPress={()=>{
                 navigation.navigate('Page3',{title:'Page345'})
             }}></Button>
-        </View>
+            <Button title="This is TabNavigator" onPress={()=>{
+                navigation.navigate('TabNav')
+            }}></Button>
+
+            <Button title="This is DrawerNav" onPress={()=>{
+                navigation.navigate('DrawerNav')
+            }}></Button>        </View>
     }
 }
 const styles = StyleSheet.create({

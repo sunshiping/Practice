@@ -14,10 +14,10 @@ export default class Page3 extends  Component{
         const {navigation} = this.props;
         const {state,setParams} = navigation;
         const {params} = state;
-        const showText = params.mode ==='edit'?'正在编辑':'编辑完成';
+        // const showText = params.mode ==='edit'?'正在编辑':'编辑完成';
         return<View style={styles.container}>
             <Text style={styles.font}>欢迎来到page3</Text>
-            <Text style={styles.font}>{showText}</Text>
+            {/*<Text style={styles.font}>{showText}</Text>*/}
             <TextInput style={styles.input} onChangeText={text=>{
                 setParams({title:text})
             }}/>
