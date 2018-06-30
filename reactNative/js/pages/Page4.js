@@ -29,7 +29,7 @@ export default class Page4 extends  Component{
                 this.props.navigation.toggleDrawer()
             }}></Button>
             <Button title="Open Page5" onPress={()=>{
-                navigation.navigate('Page5')
+                navigation.navigate('Page5',{title:'new Page5'})
             }}></Button>
         </View>
     }

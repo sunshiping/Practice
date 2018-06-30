@@ -2,8 +2,8 @@
  * Created by sunshiping on 2018/6/28.
  */
 import React from 'react';
-import {Button} from 'react-native';
-import { StackNavigator,createBottomTabNavigator,TabBarBottom, DrawerNavigator } from 'react-navigation';
+import {Button,Image,StyleSheet} from 'react-native';
+import { StackNavigator,createBottomTabNavigator,TabBarBottom, createDrawerNavigator } from 'react-navigation';
 import Splash from './../js/pages/Splash'
 import HomePage from './../js/pages/HomePage'
 import Page1 from './../js/pages/Page1'
@@ -13,30 +13,32 @@ import Page4 from './../js/pages/Page4'
 import Page5 from './../js/pages/Page5'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-export const DrawerNav = DrawerNavigator({
+export const DrawerNav = createDrawerNavigator({
     Page4:{
         screen:Page4,
         navigationOptions:{
             drawerLabel:'Page4',
-            drawerIcon:(tintColor)=>{
-                <MaterialIcons
-                    name={'drafts'}
-                    size={24}
-                    style={{color:tintColor}}
-                />
+            drawerIcon:({tintColor,focused})=>{
+                return<Image style={{width:20,height:20,tintColor:tintColor}} source={require('./../res/images/ic_my.png')}/>
             }
         }
     },
     Page5:{
         screen:Page5,
-        navigationOptions:{
-            drawerLabel:'Page5',
-            drawerIcon:(tintColor)=>{
-                <MaterialIcons
-                    name={'drafts'}
-                    size={24}
-                    style={{color:tintColor}}
-                />
+        navigationOptions:(props)=>{
+            const {navigation} = props;
+            const {state,setParams} = navigation;
+            const {params} = state;
+            return {
+                title:params.title?params.title:'This is Page5',
+                drawerLabel:'Page5',
+                drawerIcon:(tintColor)=>{
+                    <MaterialIcons
+                        IconName={"drafts"}
+                        size={24}
+                        style={{color:tintColor}}
+                    />
+                }
             }
         }
     }
@@ -155,8 +157,13 @@ export const AppStackNavigator = StackNavigator({
     },
     DrawerNav:{
         screen:DrawerNav,
-        navigationOptions:{
-            title:'This is DrawerNav'
+        navigationOptions:(props)=>{
+            const {navigation} = props;
+            const {state,setParams} = navigation;
+            const {params} = state;
+            return {
+                title:params.title?params.title:'This is DrawerNav',
+            }
         }
     }
 },
@@ -170,3 +177,9 @@ export const AppStackNavigator = StackNavigator({
        // header:null //禁用导航栏
     }
 })
+const styles = StyleSheet.create({
+    icon: {
+        width: 24,
+        height: 24,
+    },
+});

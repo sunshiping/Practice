@@ -62,7 +62,7 @@ export default class HomePage extends  Component<Props>{
             }}></Button>
 
             <Button title="This is DrawerNav" onPress={()=>{
-                navigation.navigate('DrawerNav')
+                navigation.navigate('DrawerNav',{title:'DrawerNav'})
             }}></Button>        </View>
     }
 }
