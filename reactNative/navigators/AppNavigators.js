@@ -2,8 +2,8 @@
  * Created by sunshiping on 2018/6/28.
  */
 import React from 'react';
-import {Button,Image,StyleSheet} from 'react-native';
-import { StackNavigator,createBottomTabNavigator,TabBarBottom, createDrawerNavigator } from 'react-navigation';
+import {Button,Image,StyleSheet,ScrollView} from 'react-native';
+import { StackNavigator,createBottomTabNavigator,TabBarBottom, createDrawerNavigator,DrawerItems,SafeAreaView } from 'react-navigation';
 import Splash from './../js/pages/Splash'
 import HomePage from './../js/pages/HomePage'
 import Page1 from './../js/pages/Page1'
@@ -11,6 +11,7 @@ import Page2 from './../js/pages/Page2'
 import Page3 from './../js/pages/Page3'
 import Page4 from './../js/pages/Page4'
 import Page5 from './../js/pages/Page5'
+import FetchTest from './../FetchTest'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 export const DrawerNav = createDrawerNavigator({
@@ -24,7 +25,7 @@ export const DrawerNav = createDrawerNavigator({
         }
     },
     Page5:{
-        screen:Page5,
+        screen:FetchTest,
         navigationOptions:(props)=>{
             const {navigation} = props;
             const {state,setParams} = navigation;
@@ -42,13 +43,21 @@ export const DrawerNav = createDrawerNavigator({
             }
         }
     }
-}, {
+},{
     drawerWidth:200,
     drawerBackgroundColor:'#ccc',
     drawerPosition: 'right',
     contentOptions: {
         activeTintColor: 'red',
-    }})
+    },
+    contentComponent:(props) =>(
+        <ScrollView style={{backgroundColor:'red'}}>
+            <SafeAreaView>
+                <DrawerItems {... props} />
+            </SafeAreaView>
+        </ScrollView>
+    )
+})
 export const AppTabNavigator = createBottomTabNavigator({
     Page1:{
         screen:Page1,

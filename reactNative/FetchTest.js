@@ -4,16 +4,24 @@ import {
     View,
     Image,
     Text,
+    ListView,
+    RefreshControl,
     TouchableOpacity,
 } from 'react-native';
 import NavigationBar from './NavigationBar'
+import Toast,{DURATION} from 'react-native-easy-toast';
 import HttpUtils from './HttpUtils'
 export default class FetchTest extends Component {
     constructor(props){
         super(props);
+        const ds=new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2})
         this.state={
-            result:''
+            result:'',
+            // dataSource:ds.cloneWithRows(this.state.result),
+            isLoading:true
         }
+
+        this.onLoad();
     }
     renderButton(image) {
         return <TouchableOpacity onPress={()=>{
@@ -26,7 +34,8 @@ export default class FetchTest extends Component {
         HttpUtils.get(url)
             .then(result=>{
                 this.setState({
-                    result:JSON.stringify(result)
+                    result:JSON.stringify(result),
+                    isLoading:false
                 })
             })
             .catch(error=>{
@@ -71,28 +80,49 @@ export default class FetchTest extends Component {
             })
         });
     }
+    renderRow(item){
+        return<View style={styles.row}>
+            <TouchableOpacity onPress={()=>{this.toast.show('你单击了:'+item.fullName,DURATION.LENGTH_SHORT)}}>
+                <Text style={styles.tips}>{item.title}</Text>
+                <Text style={styles.tips}>{item.releaseYear}</Text>
+            </TouchableOpacity>
+        </View>
+    }
+    renderFooter(){
+        return <Image source={require('./res/images/ic_star.png')}/>
+    }
   render() {
     return (
       <View style={styles.container}>
-          <NavigationBar
-              title={'Fetch使用'}
-              style={{backgroundColor:'#FF6363'}}
-              leftButton={
-                  this.renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))
-              }
-              rightButton={
-                  this.renderButton(require('./res/images/ic_star.png'))
-              }
-          />
+          {/*<NavigationBar*/}
+              {/*title={'Fetch使用'}*/}
+              {/*style={{backgroundColor:'#FF6363'}}*/}
+              {/*leftButton={*/}
+                  {/*this.renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))*/}
+              {/*}*/}
+              {/*rightButton={*/}
+                  {/*this.renderButton(require('./res/images/ic_star.png'))*/}
+              {/*}*/}
+          {/*/>*/}
           <Text onPress={()=>this.onLoad('https://facebook.github.io/react-native/movies.json')}>获取数据</Text>
           <Text>返回结果{this.state.result}</Text>
           {/*<ListView*/}
-            {/*dataSource={this.state.dataSource}*/}
+            {/*dataSource={this.state.result}*/}
             {/*renderRow={(item)=>this.renderRow(item)}*/}
             {/*renderSeparator={(sectionID, rowID, adjacentRowHighlighted)=>this.renderSeparator(sectionID, rowID, adjacentRowHighlighted)}*/}
             {/*renderFooter={()=>this.renderFooter()}*/}
             {/*refreshControl={<RefreshControl refreshing={this.state.isLoading} onRefresh={()=>this.onLoad()}/>}*/}
         {/*/>*/}
+          {/*<Toast*/}
+              {/*ref={toast=>{this.toast=toast}}*/}
+              {/*style={{backgroundColor:'red'}}*/}
+              {/*position='center'*/}
+              {/*positionValue={200}*/}
+              {/*fadeInDuration={750}*/}
+              {/*fadeOutDuration={1000}*/}
+              {/*opacity={0.8}*/}
+              {/*textStyle={{color:'white'}}*/}
+          {/*/>*/}
       </View>
     );
   }

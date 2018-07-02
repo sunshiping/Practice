@@ -23,7 +23,7 @@ export default class SplashComponent extends Component {
             this.state.fadeAnim,                      // 动画中的变量值
             {
                 toValue: 1,// 透明度最终变为1，即完全不透明
-                duration: 3000,
+                duration: 2000,
                 easing: Easing.bezier(0.15, 0.73, 0.37, 1.2)  //缓动函数
 
             }
@@ -31,7 +31,7 @@ export default class SplashComponent extends Component {
         // 开始执行动画
         setTimeout(() => {
             this.props.navigation.navigate('HomePage');
-        }, 3000);
+        }, 2000);
     }
 
 
