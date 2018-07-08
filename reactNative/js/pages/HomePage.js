@@ -63,7 +63,14 @@ export default class HomePage extends  Component<Props>{
 
             <Button title="This is DrawerNav" onPress={()=>{
                 navigation.navigate('DrawerNav',{title:'DrawerNav'})
-            }}></Button>        </View>
+            }}></Button>
+            <Button title="FlatListDemo" onPress={()=>{
+                navigation.navigate('FlatListDemo',{title:'FlatListDemo'})
+            }}></Button>
+            <Button title="SwipeableFlatListDemo" onPress={()=>{
+                navigation.navigate('SwipeableFlatListDemo',{title:'SwipeableFlatListDemo'})
+            }}></Button>
+        </View>
     }
 }
 const styles = StyleSheet.create({
