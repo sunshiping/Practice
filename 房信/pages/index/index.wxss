@@ -93,17 +93,21 @@ swiper {
 }
 
 .main_box .weui-grids {
+  display: flex;
+  flex-direction: row;
+  align-items: 'center';
+  justify-content: 'center';
   border-top: 0;
   border-left: 0;
 }
 
 .main_box .weui-grids .weui-grid__icon {
-  width: 80rpx;
-  height: 80rpx;
+  width: 98rpx;
+  height: 98rpx;
 }
 
 .main_box .weui-grid {
-  width: 25%;
+  flex: 1;
   padding: 20rpx;
   border-right: 0;
   border-bottom: 0;

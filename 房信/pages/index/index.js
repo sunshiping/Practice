@@ -13,20 +13,24 @@ Page({
     num: 1,
     grids: [{
         name: "二手房",
-        url: '/pages/list/list?type=house&id=1'
+        url: '/pages/list/list?type=house&id=1',
+        img:'./../../images/icon-1.png'
       },
       {
         name: "新房",
-        url: '/pages/list/list?type=new'
+        url: '/pages/list/list?type=new',
+        img: './../../images/icon-2.png'
       },
       {
         name: "租房",
-        url: '/pages/list/list?type=rent'
+        url: '/pages/list/list?type=rent',
+        img: './../../images/icon-3.png'
       },
-      {
-        name: "优惠",
-        url: '/pages/list/list?type=favourable'
-      }
+      // {
+      //   name: "优惠",
+      //   url: '/pages/list/list?type=favourable',
+      //   img: './../../images/icon-1.png'
+      // }
     ]
   },
   /**
