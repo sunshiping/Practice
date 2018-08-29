@@ -16,7 +16,7 @@ class App extends Component {
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#0068C4",
-      navigationBarTitleText: "医脉同道",
+      navigationBarTitleText: "求职",
       navigationBarTextStyle: "white",
       enablePullDownRefresh: true
     },
