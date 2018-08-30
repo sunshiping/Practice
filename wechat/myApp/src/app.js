@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { Provider } from "@tarojs/redux";
-// import configStore from "./redux/store";
-// const store = configStore();
+import configStore from "./redux/store";
+const store = configStore();
 
 import Position from "./pages/index/index";
 

@@ -1,5 +1,7 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, { Component } from "@tarojs/taro";
+import { View, Text, Button } from "@tarojs/components";
+import ListItem from "../../components/list-item/index";
+
 import './index.scss'
 
 export default class Position extends Component {
@@ -25,10 +27,20 @@ export default class Position extends Component {
 
   componentDidHide () { }
 
+  // onPositionClick(value) {
+  //   debugger
+  //   Taro.showToast({ title: "点击了" + value, icon: "success" });
+  // }
+  onClick(){
+    Taro.showToast({ title: "点击了click", icon: "success" });
+  }
+
   render () {
+    const positionObj = { positionName: "列表页面组件" };
     return (
       <View className='index'>
-        <Text>职位列表</Text>
+      <Text onClick={this.onClick}>列表页</Text>
+         <ListItem position={positionObj}/>
       </View>
     )
   }
