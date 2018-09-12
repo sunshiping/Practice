@@ -2,10 +2,16 @@ import Taro, { Component } from "@tarojs/taro";
 import { Provider } from "@tarojs/redux";
 import configStore from "./redux/store";
 const store = configStore();
-
 import Position from "./pages/index/index";
 
 // import "./app.less";
+
+if (process.env.TARO_ENV === 'weapp') {
+  require('taro-ui/dist/weapp/css/index.css')
+} else if (process.env.TARO_ENV === 'h5') {
+  require('taro-ui/dist/h5/css/index.css')
+}
+
 
 class App extends Component {
   config = {
