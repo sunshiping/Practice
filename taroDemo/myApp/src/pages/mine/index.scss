@@ -1,0 +1,9 @@
+.mine{
+  .at-grid__flex-item {
+    border-bottom:0;
+    }
+  .at-grid__flex-item:not(:last-child)::after{
+    background-color: unset;
+  }
+}
+

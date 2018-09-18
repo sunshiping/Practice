@@ -7,7 +7,7 @@ import Index from './pages/index'
 import configStore from './store'
 
 import './app.scss'
-
+     
 const store = configStore()
 
 if (process.env.TARO_ENV === "weapp") {
