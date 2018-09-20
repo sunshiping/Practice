@@ -29,7 +29,6 @@ router.post('/add',passport.authenticate("jwt",{session:false}),(req, res) => {
   });
 });
 
-
 // 获取
 // @route GET api/profiles
 router.get('/',passport.authenticate("jwt",{session:false}),(req, res) => {
