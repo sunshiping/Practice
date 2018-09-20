@@ -84,16 +84,15 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$axios
-            .post("/api/users/register", this.registerUser)
-            .then(res => {
-              // 注册成功
-              this.$message({
-                message: "注册成功！",
-                type: "success"
+          this.$axios.post("/api/users/register", this.registerUser)
+              .then(res => {
+                // 注册成功
+                this.$message({
+                  message: "注册成功！",
+                  type: "success"
+                });
+                this.$router.push("/login");
               });
-              // this.$router.push("/login");
-            });
         } else {
           console.log("error submit!!");
           return false;
