@@ -78,7 +78,6 @@ router.post('/edit/:id',passport.authenticate("jwt",{session:false}),(req, res) 
   });
 });
 
-
 // 删除
 // @route DELETE api/profiles/delete/id
 router.delete('/delete/:id',passport.authenticate("jwt",{session:false}),(req, res) => {
