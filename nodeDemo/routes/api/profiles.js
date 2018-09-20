@@ -56,7 +56,6 @@ router.get('/:id',passport.authenticate("jwt",{session:false}),(req, res) => {
   .catch(err => res.status(404).json(err));
 });
 
-
 // 编辑
 // @route POST api/profiles/edit/id
 router.post('/edit/:id',passport.authenticate("jwt",{session:false}),(req, res) => {
