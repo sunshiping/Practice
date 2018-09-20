@@ -7,9 +7,9 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 const User = require("../../models/User");
 
-// router.get('/test',(req,res) => {
-//   res.json({msg:'login works'});
-// });
+router.get('/test',(req,res) => {
+  res.json({msg:'login works'});
+});
 
 router.post("/register",(req,res) => {
   // console.log(req.body)
