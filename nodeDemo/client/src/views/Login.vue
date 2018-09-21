@@ -67,7 +67,7 @@ export default {
 
             // 页面跳转
             this.$router.push("/index");
-         });
+          });
         } else {
           console.log("error submit!!");
           return false;

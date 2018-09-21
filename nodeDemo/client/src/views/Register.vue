@@ -84,15 +84,16 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$axios.post("/api/users/register", this.registerUser)
-              .then(res => {
-                // 注册成功
-                this.$message({
-                  message: "注册成功！",
-                  type: "success"
-                });
-                this.$router.push("/login");
+          this.$axios
+            .post("/api/users/register", this.registerUser)
+            .then(res => {
+              // 注册成功
+              this.$message({
+                message: "注册成功！",
+                type: "success"
               });
+              // this.$router.push("/login");
+            });
         } else {
           console.log("error submit!!");
           return false;
@@ -135,9 +136,7 @@ export default {
   border-radius: 5px;
   box-shadow: 0px 5px 10px #cccc;
 }
-.el-select{
-  width:100%;
-}
+
 .submit_btn {
   width: 100%;
 }
