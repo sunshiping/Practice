@@ -66,7 +66,6 @@ router.post('/edit/:id',passport.authenticate("jwt",{session:false}),(req, res) 
   if(req.body.expend)profileFileds.expend = req.body.expend;
   if(req.body.cash)profileFileds.cash = req.body.cash;
   if(req.body.remark)profileFileds.remark = req.body.remark;
-
   Profile.findOneAndUpdate(
     {_id:req.params.id},
     {$set:profileFileds},
