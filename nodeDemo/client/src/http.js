@@ -16,7 +16,7 @@ function endLoading(){
 
 
 axios.interceptors.request.use(config => {
-  startLoading();
+  // startLoading();
 
   if(localStorage.eleToken){
     // 设置统一的请求header
@@ -29,10 +29,10 @@ axios.interceptors.request.use(config => {
 });
 
 axios.interceptors.response.use(response => {
-  endLoading();
+  // endLoading();
   return response;
 },error => {
-  endLoading();
+  // endLoading();
   Message.error(error.response.data);
   // 获取错误状态码
   const {status} = error.response;

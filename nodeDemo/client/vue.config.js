@@ -30,6 +30,21 @@ module.exports = {
         } else {
             // 生产开发配置
         }
+      config.module
+        .rule('svg')
+        .exclude.add(resolve('src/icons'))
+        .end()
+
+      config.module
+        .rule('icons')
+        .test(/\.svg$/)
+        .include.add(resolve('src/icons'))
+        .end()
+        .use('svg-sprite-loader')
+        .loader('svg-sprite-loader')
+        .options({
+          symbolId: 'icon-[name]'
+        })
     },
     parallel: require('os').cpus().length > 1, // 构建时开启多进程处理babel编译
     pluginOptions: { // 第三方插件配置
@@ -38,7 +53,7 @@ module.exports = {
     },
     devServer: {
         open: true,
-        host: 'localhost',
+        // host: 'localhost',
         port: 8088,
         https: false,
         hotOnly: false,
@@ -54,4 +69,7 @@ module.exports = {
         },
         before: app => { }
     }
+}
+function resolve(dir) {
+  return path.join(__dirname, './', dir)
 }

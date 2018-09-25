@@ -75,7 +75,7 @@ export default {
 <style scoped>
 .head-nav {
   width: 100%;
-  height: 60px;
+  /*height: 60px;*/
   min-width: 600px;
   padding: 5px;
   background: #324057;
