@@ -4,15 +4,14 @@
             <div class="title-container">
                 <h3 class="title">后台管理系统</h3>
             </div>
-            <el-form-item prop="username">
+            <el-form-item prop="email">
                 <span class="svg-container">
                   <svg-icon icon-class="user" />
                 </span>
                 <el-input
                         v-model="loginUser.email"
                         placeholder="请输入邮箱"
-                        name="username"
-                        type="text"
+                        name="email"
                         auto-complete="on"
                 />
             </el-form-item>
