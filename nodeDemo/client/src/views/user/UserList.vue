@@ -40,10 +40,25 @@
                     width="70">
                 </el-table-column>
                 <el-table-column
+                        prop="name"
+                        label="姓名"
+                        align='center'
+                        width="150">
+                </el-table-column>
+                <el-table-column
+                        prop="email"
+                        label="邮箱"
+                        align='center'>
+                </el-table-column>
+                <el-table-column
+                        prop="identity"
+                        label="身份类型"
+                        align='center'>
+                </el-table-column>
+                <el-table-column
                     prop="date"
                     label="创建时间"
                     align='center'
-                    width="250"
                     sortable>
                     <template slot-scope="scope">
                         <el-icon name="time"></el-icon>
@@ -51,56 +66,10 @@
                     </template>
                 </el-table-column>
                 <el-table-column
-                    prop="type"
-                    label="收支类型"
-                    align='center'
-                    width="150">
-                </el-table-column>
-                <el-table-column
-                    prop="describe"
-                    label="收支描述"
-                    align='center'
-                    width="180">
-                </el-table-column>
-                <el-table-column
-                    prop="income"
-                    label="收入"
-                    align='center'
-                    width="170">
-                    <template slot-scope="scope">
-                        <span style="color:#00d053">+ {{ scope.row.income }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                    prop="expend"
-                    label="支出"
-                    align='center'
-                    width="170">
-                    <template slot-scope="scope">
-                        <span style="color:#f56767">- {{ scope.row.expend }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                    prop="cash"
-                    label="账户现金"
-                    align='center'
-                    width="170">
-                    <template slot-scope="scope">
-                        <span style="color:#4db3ff">{{ scope.row.cash }}</span>
-                    </template>
-                </el-table-column>
-                 <el-table-column
-                    prop="remark"
-                    label="备注"
-                    align='center'
-                    width="220">
-                </el-table-column>
-                <el-table-column
                     prop="operation"
                     align='center'
                     label="操作"
-                    fixed="right"
-                    width="180">
+                    fixed="right">
                     <template slot-scope='scope'>
                         <el-button
                             type="warning"
@@ -112,7 +81,7 @@
                             type="danger"
                             icon='delete'
                             size="small"
-                            @click='onDeleteMoney(scope.row,scope.$index)'
+                            @click='onDeleteUser(scope.row,scope.$index)'
                         >删除</el-button>
                     </template>
                 </el-table-column>
@@ -136,15 +105,18 @@
             </el-row>
         </div>
         <!-- 弹框页面 -->
-        <DialogFound :dialog='dialog' :form='form' @update="getProfile"></DialogFound>
+        <UserDialog :dialog='dialog' :form='form' @update="getUsers"></UserDialog>
     </div>
 </template>
 
 <script>
-import DialogFound from "@/components/DialogFound";
+import UserDialog from "@/components/dialog/UserDialog";
 
 export default {
   name: "fundlist",
+  components: {
+    UserDialog
+  },
   data() {
     return {
       tableData: [],
@@ -156,13 +128,10 @@ export default {
         option: "edit"
       },
       form: {
-        type: "",
-        describe: "",
-        income: "",
-        expend: "",
-        cash: "",
-        remark: "",
-        id: ""
+        name: "",
+        email: "",
+        password: "",
+        identity: "",
       },
       //需要给分页组件传的信息
       paginations: {
@@ -178,16 +147,13 @@ export default {
       }
     };
   },
-  components: {
-    DialogFound
-  },
   created() {
-    this.getProfile();
+    this.getUsers();
   },
   methods: {
-    getProfile() {
+    getUsers() {
       // 获取表格数据
-      this.$axios("/api/profiles").then(res => {
+      this.$axios("/api/users").then(res => {
         // this.tableData = res.data;
         this.allTableData = res.data;
         this.filterTableData = res.data;
@@ -199,41 +165,37 @@ export default {
       // 编辑
       this.dialog = {
         show: true,
-        title: "修改资金信息",
+        title: "修改用户信息",
         option: "edit"
       };
       this.form = {
-        type: row.type,
-        describe: row.describe,
-        income: row.income,
-        expend: row.expend,
-        cash: row.cash,
-        remark: row.remark,
+        name: row.name,
+        email: row.email,
+        password: '',
+        identity: row.identity,
         id: row._id
       };
     },
-    onDeleteMoney(row, index) {
+    onDeleteUser(row, index) {
       // 删除
-      this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
+      this.$axios.delete(`/api/users/delete/${row._id}`).then(res => {
         this.$message("删除成功");
-        this.getProfile();
+        this.getUsers();
       });
     },
     onAddMoney() {
       // 添加
       this.dialog = {
         show: true,
-        title: "添加资金信息",
+        title: "添加用户",
         option: "add"
       };
       this.form = {
-        type: "",
-        describe: "",
-        income: "",
-        expend: "",
-        cash: "",
-        remark: "",
-        id: ""
+        name: '',
+        email: '',
+        password: '',
+        identity: '',
+        id: ''
       };
     },
     handleCurrentChange(page) {
@@ -272,7 +234,7 @@ export default {
           type: "warning",
           message: "请选择时间区间"
         });
-        this.getProfile();
+        this.getUsers();
         return;
       }
       const stime = this.search_data.startTime.getTime();

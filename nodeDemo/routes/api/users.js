@@ -83,4 +83,27 @@ router.get('/current',passport.authenticate("jwt",{session:false}),(req,res) => 
 });
 
 
+// 获取
+// @route GET api/users
+router.get('/',passport.authenticate("jwt",{session:false}),(req, res) => {
+  User.find()
+    .then(user => {
+      if(!user){
+        return res.status(404).json("没有任何数据");
+      }
+      res.json(user);
+    })
+    .catch(err => res.status(404).json(err));
+});
+// 删除
+// @route DELETE api/users/delete/id
+router.delete('/delete/:id',passport.authenticate("jwt",{session:false}),(req, res) => {
+  User.findOneAndRemove({_id:req.params.id}).then(user => {
+    user.save().then(user => res.json(user));
+  })
+    .catch(err => res.status(404).json("删除失败"));
+});
+
+
+
 module.exports = router;

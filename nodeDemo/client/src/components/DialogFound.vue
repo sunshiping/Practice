@@ -48,7 +48,6 @@
                         <el-button @click="dialog.show = false">取 消</el-button>
                         <el-button type="primary" @click='onSubmit("form")'>提  交</el-button>
                     </el-form-item>
-
                 </el-form>
             </div>
         </el-dialog>

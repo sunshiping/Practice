@@ -32,7 +32,7 @@
                      <span class="svg-container">
                       <svg-icon icon-class="identity" />
                     </span>
-                <el-select v-model="registerUser.identity" placeholder="请选择身份" style="width: 92%">
+                <el-select v-model="registerUser.identity" placeholder="请选择身份" style="width: 88%">
                     <el-option label="管理员" value="manager"></el-option>
                     <el-option label="员工" value="employee"></el-option>
                 </el-select>
@@ -150,15 +150,15 @@
             width: 85%;
             input {
                 background: transparent;
-                border: 0px;
+                border: 0;
                 -webkit-appearance: none;
-                border-radius: 0px;
+                border-radius: 0;
                 padding: 12px 5px 12px 15px;
                 color: $light_gray;
                 height: 47px;
                 caret-color: $cursor;
                 &:-webkit-autofill {
-                    -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
+                    -webkit-box-shadow: 0 0 0 1000px $bg inset !important;
                     -webkit-text-fill-color: $cursor !important;
                 }
             }
@@ -197,7 +197,7 @@
             width: 520px;
             max-width: 100%;
             padding: 35px 35px 15px 35px;
-            margin: 120px auto;
+            margin: 30px auto;
         }
         .tips {
             font-size: 14px;

@@ -49,7 +49,10 @@ export default {
           icon: "fa-asterisk",
           name: "信息管理",
           path: "info",
-          children: [{ path: "infoshow", name: "个人信息" }]
+          children: [
+            { path: "user", name: "人员管理" },
+            { path: "infoshow", name: "个人信息" }
+            ]
         }
       ]
     };
