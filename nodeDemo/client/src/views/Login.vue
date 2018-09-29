@@ -31,7 +31,10 @@
                     <svg-icon v-else icon-class="eye_open" />
                 </span>
             </el-form-item>
-            <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="submitForm('loginForm')">登录</el-button>
+            <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:16px;" @click.native.prevent="submitForm('loginForm')">登录</el-button>
+            <div class="tips fn-fr">
+                <router-link :to="{ path: 'register' }">注册账号</router-link>
+            </div>
         </el-form>
     </div>
 </template>
@@ -131,7 +134,7 @@
     }
 
     /* reset element-ui css */
-    .login-container {
+    .login-container, {
         .el-input {
             display: inline-block;
             height: 47px;
@@ -158,6 +161,15 @@
             color: #454545;
         }
     }
+    .login-container .tips,
+    .register .tips{
+        font-size: 14px;
+        color: #8586e9;
+    }
+    .login-container .fn-fr,
+    .register .fn-fr{
+        float: right;
+    }
 </style>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -181,7 +193,6 @@
         }
         .tips {
             font-size: 14px;
-            color: #fff;
             margin-bottom: 10px;
             span {
                 &:first-of-type {
