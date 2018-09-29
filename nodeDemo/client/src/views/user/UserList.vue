@@ -54,6 +54,9 @@
                         prop="identity"
                         label="身份类型"
                         align='center'>
+                    <template slot-scope="scope">
+                        <span>{{ getIdentity(scope.row.identity) }}</span>
+                    </template>
                 </el-table-column>
                 <el-table-column
                     prop="date"
@@ -62,7 +65,7 @@
                     sortable>
                     <template slot-scope="scope">
                         <el-icon name="time"></el-icon>
-                        <span style="margin-left: 10px">{{ scope.row.date }}</span>
+                        <span style="margin-left: 10px">{{ $moment(scope.row.date).format("YYYY-MM-DD HH:mm")  }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column
@@ -151,6 +154,13 @@ export default {
     this.getUsers();
   },
   methods: {
+    getIdentity(data) {
+      if(data === 'manager'){
+        return '管理员'
+      }else {
+        return '员工'
+      }
+    },
     getUsers() {
       // 获取表格数据
       this.$axios("/api/users").then(res => {
