@@ -6,7 +6,7 @@
             </div>
             <el-form-item prop="email">
                 <span class="svg-container">
-                  <svg-icon icon-class="user" />
+                  <svg-icon icon-class="email" />
                 </span>
                 <el-input
                         v-model="loginUser.email"
@@ -134,7 +134,7 @@
     }
 
     /* reset element-ui css */
-    .login-container, {
+    .login-container {
         .el-input {
             display: inline-block;
             height: 47px;
