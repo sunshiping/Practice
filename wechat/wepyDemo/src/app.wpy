@@ -1,0 +1,103 @@
+<style lang="less">
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+</style>
+
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+
+  import {setStore} from 'wepy-redux'
+  import configStore from './store'
+
+  const store = configStore()
+  setStore(store)
+
+  export default class extends wepy.app {
+    config = {
+      pages: [
+        'pages/popular',
+        'pages/trending',
+        'pages/favorite',
+        'pages/my'
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTitleText: 'WeChat',
+        navigationBarTextStyle: 'black',
+        enablePullDownRefresh: false
+      },
+      tabBar: {
+        color: '#ccc',
+        selectedColor: '#00a8f3',
+        list: [{
+          pagePath: 'pages/popular',
+          text: 'Popular',
+          iconPath: 'asset/images/tabbar/icon-popular.png',
+          selectedIconPath: 'asset/images/tabbar/icon-popular_active.png'
+        }, {
+          pagePath: 'pages/trending',
+          text: 'Trending',
+          iconPath: 'asset/images/tabbar/icon-trending.png',
+          selectedIconPath: 'asset/images/tabbar/icon-trending_active.png'
+        }, {
+          pagePath: 'pages/favorite',
+          text: 'Favorite',
+          iconPath: 'asset/images/tabbar/icon-favorite.png',
+          selectedIconPath: 'asset/images/tabbar/icon-favorite_active.png'
+        }, {
+          pagePath: 'pages/my',
+          text: 'My',
+          iconPath: 'asset/images/tabbar/icon-my.png',
+          selectedIconPath: 'asset/images/tabbar/icon-my_active.png'
+        }]
+      }
+    }
+
+    globalData = {
+      userInfo: null
+    }
+
+    constructor() {
+      super()
+      this.use('requestfix')
+    }
+
+    onLaunch() {
+      this.testAsync()
+    }
+
+    sleep(s) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise resolved')
+        }, s * 1000)
+      })
+    }
+
+    async testAsync() {
+      const data = await this.sleep(3)
+      console.log(data)
+    }
+
+    getUserInfo(cb) {
+      const that = this
+      if (this.globalData.userInfo) {
+        return this.globalData.userInfo
+      }
+      wepy.getUserInfo({
+        success(res) {
+          that.globalData.userInfo = res.userInfo
+          cb && cb(res.userInfo)
+        }
+      })
+    }
+  }
+</script>
