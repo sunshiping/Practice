@@ -1,7 +1,7 @@
 {
 	"description": "GitHub Popular",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
 		"minified": false,
@@ -10,6 +10,6 @@
 	"compileType": "miniprogram",
 	"appid": "wx686871f406673a5b",
 	"projectname": "wepy-demo",
-	"miniprogramRoot": "./dist",
+	"miniprogramRoot": "dist/",
 	"condition": {}
 }
