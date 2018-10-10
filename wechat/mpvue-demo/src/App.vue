@@ -1,11 +1,20 @@
 <script>
-    import { get } from '@/utils/index'
+    // import qcloud from 'wafer2-client-sdk'
+    // import config from '@/config'
 export default {
   async created () {
-    const res = await get('/weapp/demo')
+        // qcloud.setLoginUrl(config.loginUrl)
+        // qcloud.login({
+        //   success: function (userInfo) {
+        //     console.log('登录成功', userInfo)
+        //   },
+        //   fail: function (err) {
+        //     console.log('登录失败', err)
+        //   }
+        // })
 
-    console.log('111111', res)
-    console.log('小程序启动了')
+        // let res = await get('/weapp/demo')
+        // console.log(11, res)
   }
 }
 </script>

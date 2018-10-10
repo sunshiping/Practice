@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/me/main",
     "pages/books/main",
-    "pages/common/main",
-    "pages/me/main"
+    "pages/common/main"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
