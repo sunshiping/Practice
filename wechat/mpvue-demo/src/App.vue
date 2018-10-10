@@ -1,12 +1,11 @@
 <script>
+    import { get } from '@/utils/index'
 export default {
-  created () {
-    // 调用API从本地缓存中获取数据
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  async created () {
+    const res = await get('/weapp/demo')
 
-    console.log('app created and cache logs by setStorageSync')
+    console.log('111111', res)
+    console.log('小程序启动了')
   }
 }
 </script>
