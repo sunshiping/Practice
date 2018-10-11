@@ -14,23 +14,26 @@ export default {
   },
   data () {
     return {
-      userInfo: null
+      userInfo: null,
+      openId: null
     }
   },
   created () {
+    console.log('created', 1111)
   },
   onLoad () {
-    console.log(2122)
+    console.log('onLoad', 2222)
   },
   mounted () {
     // 一进来看看用户是否授权过
     this.getSetting()
+    this.openId = wx.getStorageSync('jscode').openid
   },
   methods: {
     async addBook (isbn) {
       const res = await post('/weapp/addbook', {
         isbn,
-        openid: this.userInfo.nickName
+        openid: this.openId
       })
       if (res.title) {
         showToast(`添加成功`, 'success')
@@ -64,7 +67,6 @@ export default {
       wx.scanCode({
         onlyFromCamera: true,
         success: function (res) {
-          console.log(res.result)
           if (res.result) {
             _this.addBook(res.result)
           }

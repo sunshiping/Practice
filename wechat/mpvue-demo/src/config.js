@@ -1,17 +1,9 @@
 // 配置项
 const env = {
-  name: '房信',
-  title: '21世纪不动产郑州分公司',
-  sub_title: '21世纪',
-  version: '1.0.0',
-  app_debug: true,
-  app_env: 'production',
-  app_local: 'zz',
-  city: 'zhengzhou',
-  mp_url: 'http://mp.fx.test',
-  mp_pro_url: 'https://zz-m.1fangxin.net',
-  company_id: 1,
-  city_id: 159
+  name: '蜗牛图书',
+  host: 'http://localhost:5757',
+  appid: 'wx686871f406673a5b',
+  secret: 'e4f904d79a80efd0c478013719fe79fc'
 }
 const host = 'http://localhost:5757'
 const config = {

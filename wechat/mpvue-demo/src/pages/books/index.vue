@@ -25,7 +25,9 @@
       if (!this.dataMore) {
         this.dataMore = true
       }
-      wx.stopPullDownRefresh()
+      setTimeout(function () {
+        wx.stopPullDownRefresh()
+      }, 1000)
     },
     // 上拉加载，拉到底部触发
     onReachBottom () {
