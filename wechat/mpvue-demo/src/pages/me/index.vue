@@ -3,11 +3,12 @@
       <img v-if="userInfo" :src="userInfo.avatarUrl" alt="头像"/>
       <div v-if="userInfo" class="userName">{{ userInfo.nickName }}</div>
       <i-button v-if="!userInfo" type="primary" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1">获取权限</i-button>
+      <i-button v-if="userInfo" type="error" @click="scanBook">添加图书</i-button>
   </div>
 </template>
 
 <script>
-
+import { showToast, post } from '@/utils/index'
 export default {
   components: {
   },
@@ -26,6 +27,15 @@ export default {
     this.getSetting()
   },
   methods: {
+    async addBook (isbn) {
+      const res = await post('/weapp/addbook', {
+        isbn,
+        openid: this.userInfo.nickName
+      })
+      if (res.title) {
+        showToast(`添加成功`, 'success')
+      }
+    },
     getSetting () {
       let _this = this
       wx.getSetting({
@@ -48,6 +58,18 @@ export default {
       } else {
         // 用户按了拒绝按钮
       }
+    },
+    scanBook () {
+      let _this = this
+      wx.scanCode({
+        onlyFromCamera: true,
+        success: function (res) {
+          console.log(res.result)
+          if (res.result) {
+            _this.addBook(res.result)
+          }
+        }
+      })
     }
   }
 }

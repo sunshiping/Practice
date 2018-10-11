@@ -1,17 +1,43 @@
 import config from '@/config'
 
 export function get (url, data) {
+  return request(url, 'GET', data)
+}
+
+export function post (url, data) {
+  return request(url, 'POST', data)
+}
+
+function request (url, method, data) {
   return new Promise((resolve, reject) => {
     wx.request({
+      data: data,
+      method: method,
       url: config.host + url,
       success: function (res) {
         if (res.data.code === 0) {
           resolve(res.data.data)
         } else {
+          showModel('添加失败', '图书已存在')
           reject(res.data)
         }
       }
     })
+  })
+}
+
+// showToast 提示信息
+export function showToast (text, type) {
+  wx.showToast({
+    title: text,
+    icon: type
+  })
+}
+export function showModel (title, content) {
+  wx.showModal({
+    title: title,
+    content: content,
+    showCancel: false
   })
 }
 

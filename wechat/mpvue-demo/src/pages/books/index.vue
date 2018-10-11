@@ -1,36 +1,51 @@
 <template>
-  <div>
-   图书列表
-      <open-data type="userAvatarUrl"></open-data>
-      <open-data type="userNickName"></open-data>
-      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录/注册</button>
-  </div>
+    <div>
+        <ul>
+            <li v-for="v in books" :key="v.id">{{ v.title }}<img :src="v.image" alt="封面图"></li>
+        </ul>
+    </div>
 </template>
 
 <script>
-export default {
-  components: {},
-  data () {
-    return {}
-  },
-  onLaunch () {
-    console.log('111')
-  },
-  created () {
-  },
-  methods: {
+  import {get} from '@/utils/index'
+
+  export default {
+    components: {},
+    data () {
+      return {
+        books: [],
+        dataMore: true
+      }
+    },
+    mounted () {
+      this.getList()
+    },
+    async onPullDownRefresh () {
+      this.getList()
+      if (!this.dataMore) {
+        this.dataMore = true
+      }
+      wx.stopPullDownRefresh()
+    },
+    // 上拉加载，拉到底部触发
+    onReachBottom () {
+      // 到这底部在这里需要做什么事情
+      if (this.dataMore) {
+        this.loadMore()
+      }
+    },
+    methods: {
+      async getList () {
+        const books = await get('/weapp/booklist')
+        this.books = books.list
+      },
+      async loadMore () {
+        console.log('暂无更多数据')
+        this.dataMore = false
+      }
+    }
   }
-}
 </script>
 
 <style>
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-
-.log-item {
-  margin: 10rpx;
-}
 </style>
