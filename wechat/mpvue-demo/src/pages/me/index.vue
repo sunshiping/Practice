@@ -2,6 +2,7 @@
   <div class="mine">
       <img v-if="userInfo" :src="userInfo.avatarUrl" alt="头像"/>
       <div v-if="userInfo" class="userName">{{ userInfo.nickName }}</div>
+      <YearProgress></YearProgress>
       <i-button v-if="!userInfo" type="primary" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1">获取权限</i-button>
       <i-button v-if="userInfo" type="error" @click="scanBook">添加图书</i-button>
   </div>
@@ -9,8 +10,10 @@
 
 <script>
 import { showToast, post } from '@/utils/index'
+import YearProgress from '@/components/YearProgress'
 export default {
   components: {
+    YearProgress
   },
   data () {
     return {

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "蜗牛图书"
+  "navigationBarTitleText": "蜗牛图书",
+  "usingComponents": {
+    "i-load-more": "../../../static/dist/load-more/index"
+  }
 }
