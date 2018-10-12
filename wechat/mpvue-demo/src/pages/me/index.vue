@@ -3,14 +3,16 @@
       <img v-if="userInfo" :src="userInfo.avatarUrl" alt="头像"/>
       <div v-if="userInfo" class="userName">{{ userInfo.nickName }}</div>
       <YearProgress></YearProgress>
-      <i-button v-if="!userInfo" type="primary" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="getUserInfo1">获取权限</i-button>
+      <i-button v-if="!userInfo" type="primary" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="login">获取权限</i-button>
       <i-button v-if="userInfo" type="error" @click="scanBook">添加图书</i-button>
   </div>
 </template>
 
 <script>
+import qcloud from 'wafer2-client-sdk'
 import { showToast, post } from '@/utils/index'
 import YearProgress from '@/components/YearProgress'
+import config from '@/config'
 export default {
   components: {
     YearProgress
@@ -75,6 +77,27 @@ export default {
           }
         }
       })
+    },
+    login () {
+      let user = wx.getStorageSync('userinfo')
+      const self = this
+      if (!user) {
+        qcloud.setLoginUrl(config.loginUrl)
+        qcloud.login({
+          success: function (userinfo) {
+            qcloud.request({
+              url: config.userUrl,
+              login: true,
+              success (userRes) {
+                console.log('登录成功')
+                wx.setStorageSync('userinfo', userRes.data.data)
+                self.userinfo = userRes.data.data
+              }
+            })
+          }
+
+        })
+      }
     }
   }
 }

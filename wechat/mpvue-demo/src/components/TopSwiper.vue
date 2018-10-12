@@ -48,10 +48,11 @@
 </script>
 <style lang='scss'>
     .swiper {
-        margin-top: 5px;
+        padding-top: 10px;
+        background: rgba(192, 204, 170, 0.1);
         .slide-image {
             width: 33%;
-            height: 250rpx;
+            height: 258rpx;
         }
     }
 </style>

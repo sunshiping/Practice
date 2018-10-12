@@ -2,7 +2,6 @@
     <div>
         <BookDetail :bookInfo="bookInfo"></BookDetail>
         <i-button type="primary"  open-type="share">转发给好友</i-button>
-        <i-button type="primary"  open-type="share">转发给好友</i-button>
         <i-button type="default" @click="goBack">返回首页</i-button>
     </div>
 </template>

@@ -9,7 +9,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EA5149",
-    "navigationBarTitleText": "蜗牛图书",
+    "navigationBarTitleText": "书籍",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh":true,
     "backgroundColor":"#EA5149"
@@ -21,11 +21,6 @@
       "selectedIconPath":"static/img/book-active.png",
       "pagePath": "pages/books/main",
       "text": "图书"
-    }, {
-      "iconPath":"static/img/todo.png",
-      "selectedIconPath":"static/img/todo-active.png",
-      "pagePath": "pages/common/main",
-      "text": "评论"
     },{
       "iconPath":"static/img/me.png",
       "selectedIconPath":"static/img/me-active.png",

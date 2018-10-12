@@ -64,7 +64,7 @@
 </script>
 <style lang='scss' scoped>
     .book-card {
-        padding: 5px;
+        padding: 5px 10px;
         overflow: hidden;
         margin-top: 5px;
         margin-bottom: 5px;
