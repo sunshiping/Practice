@@ -38,4 +38,5 @@ router.get('/booklist', controllers.booklist)
 router.post('/openid', controllers.openid)
 router.get('/bookdetail', controllers.bookdetail)
 router.get('/top', controllers.top)
+router.get('/dedicate', controllers.dedicate)
 module.exports = router

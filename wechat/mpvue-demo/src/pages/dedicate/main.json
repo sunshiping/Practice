@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "贡献书籍",
+  "usingComponents": {
+    "i-load-more": "../../../static/dist/load-more/index"
+  }
+}

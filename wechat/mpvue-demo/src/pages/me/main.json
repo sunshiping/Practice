@@ -2,7 +2,9 @@
   "navigationBarTitleText": "个人中心",
   "enablePullDownRefresh":false,
   "usingComponents": {
-    "i-button": "../../../static/dist/button/index"
+    "i-button": "../../../static/dist/button/index",
+    "i-row": "../../../static/dist/row/index",
+    "i-col": "../../../static/dist/col/index"
   }
 }
 

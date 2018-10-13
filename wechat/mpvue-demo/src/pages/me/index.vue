@@ -4,7 +4,10 @@
       <div v-if="userInfo" class="userName">{{ userInfo.nickName }}</div>
       <YearProgress></YearProgress>
       <i-button v-if="!userInfo" type="primary" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" @click="login">获取权限</i-button>
-      <i-button v-if="userInfo" type="error" @click="scanBook">添加图书</i-button>
+      <i-row>
+          <i-col span="12" i-class="col-class"><i-button v-if="userInfo" type="error" @click="scanBook">添加图书</i-button></i-col>
+          <i-col span="12" i-class="col-class"><i-button v-if="userInfo" type="success" @click="meUpload">我的贡献</i-button></i-col>
+      </i-row>
   </div>
 </template>
 
@@ -24,10 +27,10 @@ export default {
     }
   },
   created () {
-    console.log('created', 1111)
+    // console.log('created', 1111)
   },
   onLoad () {
-    console.log('onLoad', 2222)
+    // console.log('onLoad', 2222)
   },
   mounted () {
     // 一进来看看用户是否授权过
@@ -51,14 +54,13 @@ export default {
           if (res.authSetting['scope.userInfo']) {
             _this.userInfo = wx.getStorageSync('userInfo').userInfo
           } else {
-            console.log('用户还未授权过')
+            // console.log('用户还未授权过')
           }
         }
       })
     },
     bindGetUserInfo (e) {
       let _this = this
-      // console.log(e.mp.detail.rawData)
       if (e.mp.detail.rawData) {
         // 用户按了允许授权按钮
         _this.userInfo = e.mp.detail.userInfo
@@ -89,7 +91,6 @@ export default {
               url: config.userUrl,
               login: true,
               success (userRes) {
-                console.log('登录成功')
                 wx.setStorageSync('userinfo', userRes.data.data)
                 self.userinfo = userRes.data.data
               }
@@ -98,6 +99,12 @@ export default {
 
         })
       }
+    },
+    meUpload () {
+      // 跳转到我的贡献
+      wx.navigateTo({
+        url: `/pages/dedicate/main`
+      })
     }
   }
 }

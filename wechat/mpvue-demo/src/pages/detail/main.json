@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "详情页",
+  "enablePullDownRefresh":false,
   "usingComponents": {
     "i-button": "../../../static/dist/button/index"
   }

@@ -3,7 +3,8 @@
     "pages/books/main",
     "pages/me/main",
     "pages/common/main",
-    "pages/detail/main"
+    "pages/detail/main",
+    "pages/dedicate/main"
 
   ],
   "window": {

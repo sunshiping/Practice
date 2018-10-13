@@ -21,7 +21,6 @@
     },
     mounted () {
       this.bookid = this.$root.$mp.query.id
-      console.log(this.bookid)
       this.getDetail()
     },
     methods: {
@@ -31,10 +30,8 @@
           title: `${info.title}图书`
         })
         this.bookInfo = info
-        console.log(this.bookInfo)
       },
       goBack () {
-        console.log(22222)
         wx.switchTab({
           url: `/pages/books/main`
         })
@@ -43,7 +40,6 @@
     onShareAppMessage: function (res) {
       if (res.from === 'button') {
         // 来自页面内转发按钮
-        console.log(res)
       }
       return {
         path: '/pages/detail/main?id=' + this.bookInfo.id

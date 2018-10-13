@@ -1,6 +1,5 @@
 <template>
     <div>
-        <TopSwiper :tops="imgUrls"></TopSwiper>
         <Card v-for="book in books" :key="book.id" wx:for-item="book" :book='book'></Card>
         <i-load-more v-if="!dataMore" tip="我也是有底线的" :loading="false"/>
     </div>
@@ -9,12 +8,9 @@
 <script>
   import {get} from '@/utils/index'
   import Card from '@/components/Card'
-  import TopSwiper from '@/components/TopSwiper'
-
   export default {
     components: {
-      Card,
-      TopSwiper
+      Card
     },
     data () {
       return {
@@ -25,16 +21,16 @@
         indicatorDots: false,
         autoplay: false,
         interval: 5000,
-        duration: 1000
+        duration: 1000,
+        id: ''
       }
     },
     mounted () {
+      this.id = wx.getStorageSync('jscode').openid
       this.getList(true)
-      this.getTop()
     },
     onPullDownRefresh () {
       this.getList(true)
-      this.getTop()
       if (!this.dataMore) {
         this.dataMore = true
       }
@@ -57,7 +53,8 @@
           this.dataMore = true
         }
         wx.showNavigationBarLoading()
-        const books = await get('/weapp/booklist', {page: this.page})
+        console.log(this.id)
+        const books = await get('/weapp/dedicate', {page: this.page, id: this.id})
         if (books.list.length < 10 && this.page >= 0) {
           this.dataMore = false
         }
@@ -67,10 +64,6 @@
           this.books = this.books.concat(books.list)
         }
         wx.hideNavigationBarLoading()
-      },
-      async getTop () {
-        const topsList = await get('/weapp/top')
-        this.imgUrls = topsList.list
       }
     }
   }
