@@ -10,8 +10,7 @@
                 <cell>
                     <div slot="title"><span style="vertical-align:middle;">时长</span></div>
                     <div><span style="vertical-align:middle;">20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用</span><span
-                            style="vertical-align:middle;">50元</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">费用</span></div>
                     <div><span style="vertical-align:middle;">50元</span></div>
                 </cell>
                 <cell title="还可使用">
@@ -50,21 +49,23 @@
             <flexbox>
                 <flexbox-item>
                     <div class="flex-demo">
-                        <x-button type="primary">充值</x-button>
+                        <x-button type="primary" link="/recharge">充值</x-button>
                     </div>
                 </flexbox-item>
                 <flexbox-item>
                     <div class="flex-demo">
-                        <x-button type="warn">结束使用</x-button>
+                        <x-button type="warn" @click.native="showSheetBox">结束使用</x-button>
                     </div>
                 </flexbox-item>
             </flexbox>
         </div>
+        <actionsheet v-model="showSheet" :menus="menus" @on-click-menu-stop="onStop" show-cancel></actionsheet>
+        <toast v-model="showSuccess">操作成功</toast>
     </div>
 </template>
 
 <script>
-  import {Flexbox, FlexboxItem, Group, CellFormPreview, Cell, XButton} from 'vux'
+  import {Flexbox, FlexboxItem, Group, CellFormPreview, Cell, XButton, Actionsheet, Toast} from 'vux'
 
   export default {
     name: 'home',
@@ -74,15 +75,32 @@
       CellFormPreview,
       Flexbox,
       FlexboxItem,
-      XButton
+      XButton,
+      Actionsheet,
+      Toast
     },
     data() {
-      return {}
+      return {
+        showSheet:false,
+        showSuccess:false,
+        menus: {
+          'title.noop': '确定结束使用咩?<br/><span style="color:#666;font-size:12px;">结束后就无法撤消了</span>',
+          stop: '<span style="color:red">确定</span>'
+        }
+      }
     },
     mounted: function () {
       window.console.log(this.$route.query.id)
     },
-    methods: {}
+    methods: {
+      showSheetBox(){
+        this.showSheet = true
+      },
+      onStop(){
+        this.showSuccess = true
+        window.console.log('结束使用');
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>

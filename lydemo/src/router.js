@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Record from './views/record/Record.vue'
 import RecordDetail from './views/recordDetail/Detail.vue'
+import Recharge from './views/recharge/Recharge.vue'
 import Mine from './views/mine/Mine.vue'
 import Qrcode from './views/qrcode/Qrcode.vue'
 import NotFind from './views/layout/404.vue'
@@ -21,6 +22,11 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: RecordDetail
+    },
+    {
+      path: '/recharge',
+      name: 'recharge',
+      component: Recharge
     },
     {
       path: '/qrcode',
