@@ -1,5 +1,16 @@
 import config from '@/config'
 
+let util = {}
+
+const ajaxUrl = process.env.NODE_ENV === 'development'
+  // 测试接口地址
+  ? 'code.net.cn/api'
+  // 线上接口地址
+  : 'https://api.code.net.cn'
+
+util.API = ajaxUrl
+util.oauthUrl = ajaxUrl
+
 export function get (url, data) {
   return request(url, 'GET', data)
 }
@@ -63,5 +74,6 @@ export function formatTime (date) {
 
 export default {
   formatNumber,
-  formatTime
+  formatTime,
+  util
 }
