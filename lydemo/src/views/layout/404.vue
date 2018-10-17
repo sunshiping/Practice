@@ -25,7 +25,7 @@
 <style lang="scss" scoped>
     .box {
         padding-top:60px;
-        align-items: center;
+        text-align: center;
     }
 </style>
 

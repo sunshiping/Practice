@@ -5,6 +5,7 @@ import store from './store'
 import VueI18n from 'vue-i18n'
 
 const FastClick = require('fastclick')
+
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false

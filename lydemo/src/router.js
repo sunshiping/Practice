@@ -5,6 +5,7 @@ import RecordDetail from './views/recordDetail/Detail.vue'
 import Recharge from './views/recharge/Recharge.vue'
 import Mine from './views/mine/Mine.vue'
 import Qrcode from './views/qrcode/Qrcode.vue'
+import Pay from './views/pay/Pay.vue'
 import NotFind from './views/layout/404.vue'
 
 Vue.use(Router)
@@ -32,6 +33,11 @@ export default new Router({
       path: '/qrcode',
       name: 'qrcode',
       component: Qrcode
+    },
+    {
+      path: '/pay',
+      name: 'pay',
+      component: Pay
     },
     {
       path: '/mine',

@@ -8,15 +8,10 @@
                     </div>
                 </cell>
                 <cell>
-                    <div slot="title"><span style="vertical-align:middle;">时长</span></div>
-                    <div><span style="vertical-align:middle;">20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用</span></div>
-                    <div><span style="vertical-align:middle;">50元</span></div>
-                </cell>
-                <cell title="还可使用">
-                    <div>
-                        <span style="color: #27EA12">12小时</span>
-                    </div>
+                    <div slot="title"><span style="vertical-align:middle;">开始时间</span></div>
+                    <div><span style="vertical-align:middle;">2018-11-11 12:00</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">本次费用</span></div>
+                    <div><span style="vertical-align:middle;">20元</span></div>
                 </cell>
             </group>
             <group>
@@ -25,7 +20,7 @@
                     <div slot="title"><span style="vertical-align:middle;">位置</span></div>
                     <div><span style="vertical-align:middle;">一号病房楼 29床</span></div>
                     <div slot="title"><span style="vertical-align:middle;">费用</span></div>
-                    <div><span style="vertical-align:middle;">押金100元，预存100元，每小时10元</span></div>
+                    <div><span style="vertical-align:middle;">押金100元，费用 20元/次</span></div>
                 </cell>
                 <cell>
                     <div slot="title"><span style="vertical-align:middle;">18:00-次日7:00可用</span></div>
@@ -40,18 +35,11 @@
                 <cell>
                     <div slot="title"><span style="vertical-align:middle;">可用余额</span></div>
                     <div><span style="vertical-align:middle;">20元</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">押金</span></div>
-                    <div><span style="vertical-align:middle;">100元</span></div>
                 </cell>
             </group>
         </div>
         <div class="weui-tabbar">
             <flexbox>
-                <flexbox-item>
-                    <div class="flex-demo">
-                        <x-button type="primary" link="/recharge">充值</x-button>
-                    </div>
-                </flexbox-item>
                 <flexbox-item>
                     <div class="flex-demo">
                         <x-button type="warn" @click.native="showSheetBox">结束使用</x-button>

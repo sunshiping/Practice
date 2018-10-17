@@ -11,8 +11,7 @@
                 </cell>
                 <cell is-link link="/detail?id=1">
                     <div slot="title"><span style="vertical-align:middle;">位置: 一号病房楼 29床</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">时长: 20小时20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用: 50元</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">费用: 20元/次</span></div>
                 </cell>
                 <cell value="2018-09-26 09:04:30"></cell>
             </group>
@@ -24,8 +23,7 @@
                 </cell>
                 <cell is-link link="/detail?id=12">
                     <div slot="title"><span style="vertical-align:middle;">位置: 一号病房楼 29床</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">时长: 20小时20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用: 50元</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">费用: 20元/次</span></div>
                 </cell>
                 <cell value="2018-09-26 09:04:30"></cell>
             </group>
@@ -37,8 +35,7 @@
                 </cell>
                 <cell is-link>
                     <div slot="title"><span style="vertical-align:middle;">位置: 一号病房楼 29床</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">时长: 20小时20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用: 50元</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">费用: 20元/次</span></div>
                 </cell>
                 <cell value="2018-09-26 09:04:30"></cell>
             </group>
@@ -50,8 +47,7 @@
                 </cell>
                 <cell is-link>
                     <div slot="title"><span style="vertical-align:middle;">位置: 一号病房楼 90床</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">时长: 20小时20分钟</span></div>
-                    <div slot="title"><span style="vertical-align:middle;">费用: 50元</span></div>
+                    <div slot="title"><span style="vertical-align:middle;">费用: 20元/次</span></div>
                 </cell>
                 <cell value="2018-09-26 09:04:30"></cell>
             </group>
