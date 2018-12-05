@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh":true,
+  "navigationBarTitleText":"我的书柜",
+  "usingComponents": {
+    "van-card": "../../vant/card/index",
+    "van-tag": "../../vant/tag/index"
+  }
+}

@@ -1,0 +1,11 @@
+<view wx:for="{{ book_list }}" wx:key="_id" wx:for-item="item">
+  <van-card bindtap="lookInfo" id="{{item._id}}" data-id="{{item._id}}" price="{{item.price}}" desc="{{item.author[0]}}" title="{{item.title}}" thumb="{{item.image}}">
+    <view slot="tags">
+      <view class='fn-dpinline' wx:for="{{ item.tags }}" wx:for-index="idx" wx:key="index" wx:for-item="tag">
+        <view wx:if="{{idx < 4}}">
+          <van-tag type="primary">{{tag.name}}</van-tag>
+        </view>
+      </view>
+    </view>
+  </van-card>
+</view>

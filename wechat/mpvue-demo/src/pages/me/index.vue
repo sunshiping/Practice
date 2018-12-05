@@ -61,6 +61,8 @@ export default {
     },
     bindGetUserInfo (e) {
       let _this = this
+      console.log(e.mp.detail.rawData)
+      debugger
       if (e.mp.detail.rawData) {
         // 用户按了允许授权按钮
         _this.userInfo = e.mp.detail.userInfo

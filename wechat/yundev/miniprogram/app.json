@@ -1,0 +1,33 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/scanCode/scanCode",
+    "pages/bookDetail/bookDetail"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#d81e06",
+    "navigationBarTitleText": "私家书柜",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-active.png",
+        "pagePath": "pages/index/index",
+        "text": "我的书柜"
+      },
+      {
+        "iconPath": "images/scancode.png",
+        "selectedIconPath": "images/scancode-active.png",
+        "pagePath": "pages/scanCode/scanCode",
+        "text": "扫一扫"
+      }
+    ]
+  }
+}

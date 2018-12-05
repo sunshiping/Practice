@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "详情页",
+  "usingComponents": {
+    "van-button": "../../vant/button/index",
+    "van-panel": "../../vant/panel/index",
+    "van-row": "../../vant/row/index",
+    "van-col": "../../vant/col/index"
+  }
+}

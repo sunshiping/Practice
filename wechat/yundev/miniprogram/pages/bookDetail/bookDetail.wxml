@@ -1,0 +1,8 @@
+<van-panel title="{{book.title}}" desc="描述信息" status="状态" use-footer-slot>
+  <van-row>
+    <van-col span="24">
+      <van-button type="primary" data-id="{{book._id}}" bindclick="updata">更新数据</van-button>
+      <van-button type="warning" data-id="{{book._id}}" bindclick="del">删除数据</van-button>
+    </van-col>
+  </van-row>
+</van-panel>

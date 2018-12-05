@@ -1,0 +1,13 @@
+.fn-dpinline{
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.van-card__title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.van-card__desc{
+  margin-bottom: 5px;
+}
