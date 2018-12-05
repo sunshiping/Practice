@@ -1,3 +1,4 @@
+import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,ADD_DEL_ITEM} from './actionTypes';
 const defaultState = {
   inputValue:'',
   list:[]
@@ -5,12 +6,12 @@ const defaultState = {
 // reducer 可接收state 不可修改
 export default (state = defaultState, action) => {
 
-  if (action.type === 'change_input_value') {
+  if (action.type === CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
     return newState
   }
-  if (action.type === 'add_todo_item') {
+  if (action.type === ADD_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
     if(newState.inputValue){
       newState.list.push(newState.inputValue);
@@ -18,7 +19,7 @@ export default (state = defaultState, action) => {
     }
     return newState
   }
-  if (action.type === 'add_del_item') {
+  if (action.type === ADD_DEL_ITEM) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.splice(action.index,1);
     return newState
