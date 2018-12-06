@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import store from './store'
-import {actionInputValue,actionDelItem,actionAddItem} from './store/actionCreator'
-import TodoListUI from './TodoListUI'
+import store from './store';
+import {actionInputValue,actionDelItem,actionAddItem, getTodoList} from './store/actionCreator'
+import TodoListUI from './TodoListUI';
 
 class TodoList extends  Component {
   constructor(props){
@@ -24,6 +24,10 @@ class TodoList extends  Component {
         handleDelClick={this.handleDelClick}
       />  
     )
+  }
+  componentDidMount(){
+   const action = getTodoList();
+   store.dispatch(action)
   }
   handleInputChange(e) {
     const  action = actionInputValue(e.target.value);
