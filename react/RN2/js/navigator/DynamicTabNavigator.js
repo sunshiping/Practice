@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {
   createBottomTabNavigator
 } from 'react-navigation';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-
+import {connect} from "react-redux";
 type Props = {};
 import PopularPage from '../pages/PopularPage'
 import TrendingPage from '../pages/TrendingPage'
@@ -56,18 +54,23 @@ const TABS = {
   }
 };
 
-export default class DynamicTabNavigator extends Component<Props> {
+class DynamicTabNavigator extends Component<Props> {
   constructor(props) {
     super(props);
     console.disableYellowBox = true;
   }
 
   _tabNavigator() {
+    if(this.Tabs){
+      return this.Tabs;
+    }
     const {PopularPage, TrendingPage, FavoritePage, MyPage} = TABS;
     const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
     // PopularPage.navigationOptions.tabBarLabel = '最新'; //动态配置tab属性
-    return createBottomTabNavigator(tabs, {
-        tabBarComponent: TabBarComponent
+    return this.Tabs = createBottomTabNavigator(tabs, {
+        tabBarComponent: props => {
+          return <TabBarComponent theme={this.props.theme} {...props}/>
+        }
       }
     )
   }
@@ -88,32 +91,13 @@ class TabBarComponent extends React.Component {
     }
   }
   render(){
-    const {routes, index} = this.props.navigation.state;
-    if(routes[index].params) {
-      const {theme} = routes[index].params;
-      if(theme && theme.updateTime > this.theme.updateTime){
-        this.theme = theme
-      }
-    }
-
     return <BottomTabBar
       {...this.props}
-      activeTintColor={this.theme.tintColor || this.props.activeTintColor}
+      activeTintColor={this.props.theme}
     />
   }
-
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
+const mapStateToProps = state => ({
+  theme: state.theme.theme,
 });
+export default connect(mapStateToProps)(DynamicTabNavigator)
