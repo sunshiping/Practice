@@ -66,7 +66,7 @@ class DynamicTabNavigator extends Component<Props> {
     }
     const {PopularPage, TrendingPage, FavoritePage, MyPage} = TABS;
     const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
-    // PopularPage.navigationOptions.tabBarLabel = '最新'; //动态配置tab属性
+    //PopularPage.navigationOptions.tabBarLabel = '最新'; //动态配置tab属性
     return this.Tabs = createBottomTabNavigator(tabs, {
         tabBarComponent: props => {
           return <TabBarComponent theme={this.props.theme} {...props}/>

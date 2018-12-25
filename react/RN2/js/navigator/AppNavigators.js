@@ -12,6 +12,9 @@ import {createReactNavigationReduxMiddleware, reduxifyNavigator} from "react-nav
 import WelcomePage from '../pages/WelcomePage';
 import HomePage from '../pages/HomePage';
 import DetailPage from '../pages/DetailPage';
+import FetchDemoPage from '../pages/FetchDemoPage';
+import AsyncStorageDemoPage from '../pages/AsyncStorageDemoPage';
+import DataStoreDemoPage from '../pages/DataStoreDemoPage';
 
 
 
@@ -36,7 +39,26 @@ const MainNavigator = createStackNavigator({
     navigationOptions:{
      // header: null   //禁用StackNavigator  status状态栏
     }
+  },
+  FetchDemoPage:{
+    screen: FetchDemoPage,
+    navigationOptions:{
+      // header: null   //禁用StackNavigator  status状态栏
+    }
+  },
+  AsyncStorageDemoPage:{
+    screen: AsyncStorageDemoPage,
+    navigationOptions:{
+      // header: null   //禁用StackNavigator  status状态栏
+    }
+  },
+  DataStoreDemoPage:{
+    screen: DataStoreDemoPage,
+    navigationOptions:{
+      // header: null   //禁用StackNavigator  status状态栏
+    }
   }
+
 });
 export const RootNavigator = createSwitchNavigator({
   Init:InitNavigator,
