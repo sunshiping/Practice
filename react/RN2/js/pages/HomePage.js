@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavigationActions} from "react-navigation";
+import {NavigationActions,SafeAreaView} from "react-navigation";
 import {BackHandler} from 'react-native';
 import NavigationUtil from "../navigator/NavigationUtil";
 import DynamicTabNavigator from '../navigator/DynamicTabNavigator';
@@ -29,7 +29,7 @@ class HomePage extends Component<Props> {
   }
   render() {
     NavigationUtil.navigation = this.props.navigation;
-    return <DynamicTabNavigator/>
+    return<DynamicTabNavigator/>
   }
 }
 const mapStateToProps = state => ({

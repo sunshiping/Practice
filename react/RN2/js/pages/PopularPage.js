@@ -138,11 +138,13 @@ class PopularTab extends Component<Props> {
           }
           ListFooterComponent={()=>this.genIndicator()}
           onEndReached={()=>{
-            if(this.canLoadMore){
-              console.log('-------onEndReached---------');
-              this.loadData(true);
-              this.canLoadMore = false;
-            }
+            setTimeout(()=>{
+              if(this.canLoadMore){
+                console.log('-------onEndReached---------');
+                this.loadData(true);
+                this.canLoadMore = false;
+              }
+            },100);
           }}
           onEndReachedThreshold={0.5}
           onMomentumScrollBegin={()=>{

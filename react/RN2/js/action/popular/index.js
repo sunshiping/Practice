@@ -29,10 +29,12 @@ export function onRefreshPopular(storeName,url,pageSize) {
  * @param favoriteDao
  * @returns {function(*)}
  */
-export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = [],favoriteDao, callBack) {
+export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = [], callBack) {
   return dispatch => {
+    debugger;
     setTimeout(() => {//模拟网络请求
       if ((pageIndex - 1) * pageSize >= dataArray.length) {//已加载完全部数据
+        debugger;
         if (typeof callBack === 'function') {
           callBack('no more')
         }
@@ -40,8 +42,7 @@ export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = []
           type: Types.POPULAR_LOAD_MORE_FAIL,
           error: 'no more',
           storeName: storeName,
-          pageIndex: --pageIndex,
-          projectModels: dataArray,
+          pageIndex: --pageIndex
         })
       } else {
         //本次和载入的最大数量

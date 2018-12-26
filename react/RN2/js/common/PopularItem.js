@@ -26,7 +26,7 @@ export default class PopularItem extends Component {
                     </Text>
                     <View style={styles.row}>
                         <View style={styles.row}>
-                            <Text>Author:</Text>
+                            <Text style={{marginRight: 6}}>Author:</Text>
                             <Image style={{height: 22, width: 22}}
                                    source={{uri: item.owner.avatar_url}}/>
                         </View>

@@ -7,6 +7,7 @@ type Props = {};
 export default class WelcomePage extends Component<Props> {
   constructor(props) {
     super(props)
+    console.disableYellowBox = true
   }
   componentDidMount() {
     this.timer = setTimeout(() => {
