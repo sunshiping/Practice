@@ -5,6 +5,8 @@ import {
   createSwitchNavigator
 } from 'react-navigation';
 import { connect } from "react-redux";
+import React from "react";
+import {Button,Text} from "react-native";
 import {createReactNavigationReduxMiddleware, reduxifyNavigator} from "react-navigation-redux-helpers";
 
  export  const rootCom = 'Init';  //设置根路由
@@ -43,6 +45,12 @@ const MainNavigator = createStackNavigator({
   FetchDemoPage:{
     screen: FetchDemoPage,
     navigationOptions:{
+      headerRight: (
+        <Text style={{marginRight: 15,padding: 5,color:'red'}}
+          onPress={() => alert('这是一个按钮!')}
+        >Info</Text>
+      ),
+      headerTitle:'FetchDemoTitle',
       // header: null   //禁用StackNavigator  status状态栏
     }
   },

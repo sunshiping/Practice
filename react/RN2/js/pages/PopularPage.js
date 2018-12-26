@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import actions from '../action/index'
 import {
   createMaterialTopTabNavigator,
+  SafeAreaView
 } from 'react-navigation';
 import Toast from 'react-native-easy-toast'
 import NavigationUtil from '../navigator/NavigationUtil'
@@ -55,9 +56,9 @@ export default class PopularPage extends Component<Props> {
       }
     );
     return (
-      <View style={{flex:1,marginTop: 30}}>
+      <SafeAreaView style={{flex:1}}>
         <TabNavigator/>
-      </View>
+      </SafeAreaView>
     )
   }
 }
