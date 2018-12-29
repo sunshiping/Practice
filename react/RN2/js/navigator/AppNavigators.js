@@ -51,6 +51,9 @@ const MainNavigator = createStackNavigator({
         >Info</Text>
       ),
       headerTitle:'FetchDemoTitle',
+      headerStyle:{
+        backgroundColor:'red'
+      }
       // header: null   //禁用StackNavigator  status状态栏
     }
   },
