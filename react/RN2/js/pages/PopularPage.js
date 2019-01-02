@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, ActivityIndicator, View, FlatList, RefreshControl} from 'react-native';
+import {StyleSheet, Text, ActivityIndicator, View, FlatList, RefreshControl,TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import actions from '../action/index'
 import {
@@ -16,13 +16,15 @@ import {
 } from 'react-navigation';
 import Toast from 'react-native-easy-toast'
 import NavigationUtil from '../navigator/NavigationUtil'
+import NavigationBar from '../common/NavigationBar';
 import PopularItem from '../common/PopularItem';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
 type Props = {};
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
-const THEME_COLOR = 'red';
+const THEME_COLOR = '#678';
 export default class PopularPage extends Component<Props> {
   constructor(props) {
     super(props);
@@ -40,7 +42,33 @@ export default class PopularPage extends Component<Props> {
     });
     return tabs;
   }
+  renderRightButton() {
+    const {theme} = this.props;
+    return <TouchableOpacity
+      onPress={() => {}}>
+      <View style={{padding: 5, marginRight: 8}}>
+        <Ionicons
+          name={'ios-search'}
+          size={24}
+          style={{
+            marginRight: 8,
+            alignSelf: 'center',
+            color: 'white',
+          }}/>
+      </View>
+    </TouchableOpacity>
+  }
   render() {
+    let statusBar = {
+      backgroundColor: THEME_COLOR,
+      barStyle: 'light-content',
+    };
+    let navigationBar = <NavigationBar
+      title={'最热'}
+      statusBar={statusBar}
+      style={{backgroundColor:THEME_COLOR}}
+      rightButton={this.renderRightButton()}
+    />;
     const TabNavigator = createMaterialTopTabNavigator(
       this._genTabs(),{
         tabBarOptions:{
@@ -57,6 +85,7 @@ export default class PopularPage extends Component<Props> {
     );
     return (
       <SafeAreaView style={{flex:1}}>
+        {navigationBar}
         <TabNavigator/>
       </SafeAreaView>
     )
@@ -185,7 +214,6 @@ const styles = StyleSheet.create({
   },
   tabStyle:{
     minWidth: 50,
-
   },
   indicatorStyle:{
     height:2,

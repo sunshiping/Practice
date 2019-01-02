@@ -1,15 +1,61 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Button} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,TouchableOpacity} from 'react-native';
 import {connect} from "react-redux";
 import actions from "../action";
 import NavigationUtil from "../navigator/NavigationUtil";
+import NavigationBar from '../common/NavigationBar';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 type Props = {};
+const THEME_COLOR = '#678';
 class MyPage extends Component<Props> {
+  renderRightButton() {
+    return <TouchableOpacity
+      onPress={() => {}}>
+      <View style={{padding: 5, marginRight: 8}}>
+        <Ionicons
+          name={'ios-search'}
+          size={24}
+          style={{
+            marginRight: 8,
+            alignSelf: 'center',
+            color: 'white',
+          }}/>
+      </View>
+    </TouchableOpacity>
+  }
+  renderLeftButton(callback) {
+    return <TouchableOpacity
+      onPress={callback}>
+      <View style={{padding: 5, marginLeft: 8}}>
+        <Ionicons
+          name={'ios-arrow-back'}
+          size={24}
+          style={{
+            marginRight: 8,
+            alignSelf: 'center',
+            color: 'white',
+          }}/>
+      </View>
+    </TouchableOpacity>
+  }
   render() {
     const {navigation} = this.props;
+    let statusBar = {
+      backgroundColor: THEME_COLOR,
+      barStyle: 'light-content',
+    };
+    let navigationBar =
+      <NavigationBar
+        title={'我的'}
+        statusBar={statusBar}
+        style={{backgroundColor:THEME_COLOR}}
+        rightButton={this.renderRightButton()}
+        leftButton={this.renderLeftButton()}
+      />;
     return (
       <View style={styles.container}>
+        {navigationBar}
         <Text style={styles.welcome}>Welcome MyPage!</Text>
         <Button title="改变主题颜色"
                 onPress={() => {
@@ -43,9 +89,7 @@ class MyPage extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    marginTop: 30,
   },
   welcome: {
     fontSize: 20,
