@@ -80,11 +80,8 @@
         }
         this.setDefaultTheme(getTheme(this.fileName))
       },
-      initEpub () {
+      initRendition() {
         const _this = this
-        const url = `${process.env.VUE_APP_RES_URL}/2018_Book_AgileProcessesInSoftwareEngine.epub`
-        this.book = new Epub(url)
-        this.setCurrentBook(this.book)
         this.rendition = this.book.renderTo('read', {
           width: innerWidth,
           height: innerHeight,
@@ -105,26 +102,39 @@
             _this.initFontSize()
             _this.initGlobalStyle()
           })
-          const el2 = contents.document.documentElement
-          el2.addEventListener('touchstart', event => {
-            // debugger
-            this.touchStartX = event.changedTouches[0].clientX
-            this.touchStartTime = event.timeStamp
-          })
-          el2.addEventListener('touchend', event => {
-            // debugger
-            const offsetx = event.changedTouches[0].clientX - this.touchStartX
-            const time = event.timeStamp - this.touchStartTime
-            if (time < 500 && offsetx > 40) {
-              _this.prevPage()
-            } else if (time < 500 && offsetx < -40) {
-              _this.nextPage()
-            } else {
-              _this.toggleTitleAndMenu()
-            }
-            event.preventDefault()
-            event.stopPropagation()
-          })
+          _this.initGesture(contents)
+        })
+      },
+      initGesture(contents) {
+        const el2 = contents.document.documentElement
+        el2.addEventListener('touchstart', event => {
+          this.touchStartX = event.changedTouches[0].clientX
+          this.touchStartTime = event.timeStamp
+        })
+        el2.addEventListener('touchend', event => {
+          const offsetx = event.changedTouches[0].clientX - this.touchStartX
+          const time = event.timeStamp - this.touchStartTime
+          if (time < 500 && offsetx > 40) {
+            this.prevPage()
+          } else if (time < 500 && offsetx < -40) {
+            this.nextPage()
+          } else {
+            this.toggleTitleAndMenu()
+          }
+          event.preventDefault()
+          event.stopPropagation()
+        })
+      },
+      initEpub () {
+        const url = `${process.env.VUE_APP_RES_URL}/2018_Book_AgileProcessesInSoftwareEngine.epub`
+        this.book = new Epub(url)
+        this.setCurrentBook(this.book)
+        this.initRendition()
+        this.book.ready.then(() => {
+          return this.book.locations.generate(750 * (window.innerWidth / 375) * (getFontSize(this.fileName) / 16))
+        }).then(locations => {
+          // console.log(locations)
+          this.setBookAvailable(true)
         })
         // this.rendition.on('touchstart', event => {
         //   console.log(111111111)

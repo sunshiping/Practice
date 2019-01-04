@@ -73,7 +73,7 @@
 }
 
 .setting-wrapper .setting-progress .progress-wrapper .progress {
-  background: -webkit-linear-gradient(#5d6268, #5d6268) no-repeat, #b4b5b7!important;
+  background: -webkit-linear-gradient(#5d6268, #5d6268) no-repeat, #b4b5b7;
 }
 
 .setting-progress .progress-wrapper .progress::-webkit-slider-thumb {
