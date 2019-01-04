@@ -4,7 +4,7 @@
       <div class="setting-progress">
         <div class="read-time-wrapper">
           <!--<span class="read-time-text">{{getReadTimeText()}}</span>-->
-          <span class="read-time-text">11111111</span>
+          <span class="read-time-text">进度</span>
           <span class="icon-forward"></span>
         </div>
         <div class="progress-wrapper">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="text-wrapper">
-          <!--<span class="progress-section-text">{{getSectionName}}</span>-->
+          <span class="progress-section-text">{{getSectionName}}</span>
           <span>({{bookAvailable ? progress + '%' : '加载中...'}})</span>
         </div>
       </div>
@@ -38,6 +38,16 @@
 
   export default {
     mixins: [ebookMixin],
+    computed: {
+      getSectionName () {
+        if (this.section) {
+          const sectionInfo = this.currentBook.section(this.section)
+          if (sectionInfo && sectionInfo.href) {
+            return this.currentBook.navigation.get(sectionInfo.href).label
+          }
+        }
+      }
+    },
     methods: {
       onProgressChange(progress) {
         this.setProgress(progress).then(() => {
@@ -52,7 +62,7 @@
       },
       displayProgress() {
         const cfi = this.currentBook.locations.cfiFromPercentage(this.progress / 100)
-        this.currentBook.rendition.display(cfi)
+        this.display(cfi)
       },
       updateProgressBg() {
         this.$refs.progress.style.backgroundSize = `${this.progress}% 100%`
@@ -78,10 +88,6 @@
             this.refreshLocation()
           })
         }
-      },
-      refreshLocation() {
-        const currentLocation = this.currentBook.rendition.currentLocation()
-        console.log(currentLocation)
       }
     },
     updated() {

@@ -5,7 +5,7 @@
 </template>
 <script>
   import { ebookMixin } from '../../utils/mixin'
-  import { getFontFamily, saveFontFamily, getFontSize, saveFontSize, getTheme, saveTheme } from '../../utils/localStorage'
+  import { getFontFamily, saveFontFamily, getFontSize, saveFontSize, getTheme, saveTheme, getLocation } from '../../utils/localStorage'
   import Epub from 'epubjs'
   global.ePub = Epub
   export default {
@@ -21,7 +21,7 @@
       prevPage () {
         if (this.rendition) {
           this.rendition.prev().then(() => {
-            // _this.refreshLocation()
+            this.refreshLocation()
           })
           this.hideTitleAndMenu()
         }
@@ -29,7 +29,7 @@
       nextPage () {
         if (this.rendition) {
           this.rendition.next().then(() => {
-            // this.refreshLocation()
+            this.refreshLocation()
           })
           this.hideTitleAndMenu()
         }
@@ -97,6 +97,8 @@
             contents.addStylesheet(`${process.env.VUE_APP_RES_URL}/fonts/montserrat.css`),
             contents.addStylesheet(`${process.env.VUE_APP_RES_URL}/fonts/tangerine.css`)
           ]).then(() => {
+            const location = getLocation(_this.fileName)
+            this.display(location, () => {})
             _this.initTheme()
             _this.initFontFamily()
             _this.initFontSize()
@@ -133,8 +135,8 @@
         this.book.ready.then(() => {
           return this.book.locations.generate(750 * (window.innerWidth / 375) * (getFontSize(this.fileName) / 16))
         }).then(locations => {
-          // console.log(locations)
           this.setBookAvailable(true)
+          this.refreshLocation()
         })
         // this.rendition.on('touchstart', event => {
         //   console.log(111111111)
