@@ -21,6 +21,11 @@ class FavoritePage extends Component<Props> {
                 onPress={() => {
                   this.props.onThemeChange('#206')
                 }}/>
+        {/*<View style={{flex: 1, backgroundColor: "red",width:60,height: 300}}>*/}
+
+        {/*</View>*/}
+        {/*<View style={{width:60,flex:1,backgroundColor:"pink"}}>*/}
+        {/*</View>*/}
       </View>
     );
   }
