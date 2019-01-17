@@ -48,7 +48,9 @@
 import cartHeader from "../../components/cartHeader/index";
 import lessonCell from "../../components/lessonCell/index";
 import { formatTime } from "../../utils";
+import {ebookMixin} from '../../utils/mixin';
 export default {
+  mixins: [ebookMixin],
   data() {
     return {
       minutes: 0,
@@ -67,7 +69,7 @@ export default {
     mylessons() {
       const lessons = [];
       // 获取课程
-      const myLesson = this.$store.getters.lessonInfo.mylessons;
+      const myLesson = this.lessonInfo.mylessons;
       // console.log(myLesson);
       // 课程个数
       this.lessonCount = myLesson.length;

@@ -77,7 +77,6 @@ export default {
           method: "get"
         })
         .then(res => {
-          debugger;
           // console.log(res);
           this.imgUrls = res.imgUrls;
           this.allLessons = res.allLessons;
@@ -97,7 +96,7 @@ export default {
       this.swiperHeight = length * 240;
     },
     swiperChange(e) {
-      // console.log(e);
+      console.log(e);
       this.currentIndex = e.mp.detail.current;
       this.updateView();
     }

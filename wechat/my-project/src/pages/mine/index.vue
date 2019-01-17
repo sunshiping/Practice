@@ -34,7 +34,9 @@
 </template>
 <script>
 import orderCell from "../../components/orderCell/index";
+import {ebookMixin} from '../../utils/mixin';
 export default {
+  mixins: [ebookMixin],
   data() {
     return {
       grade: "",
@@ -51,11 +53,11 @@ export default {
   computed: {
     user() {
       // console.log(this.$store.getters.user);
-      return this.$store.getters.user;
+      return this.user;
     },
     lessonInfo() {
       // console.log(this.$store.getters.lessonInfo);
-      return this.$store.getters.lessonInfo;
+      return this.lessonInfo;
     }
   },
   components: {
