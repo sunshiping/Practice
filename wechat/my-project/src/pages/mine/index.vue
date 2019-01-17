@@ -2,25 +2,25 @@
   <div class="mine">
     <div class="user_info">
       <!-- 用户信息 -->
-      <img :src="user.avatarUrl" alt>
+      <img :src="userInfo.avatarUrl" alt>
       <div class="user_detail">
-        <h4>{{user.nickName}}</h4>
-        <span>{{user.gender == 1 ? '男' : "女"}}</span>
+        <h4>{{userInfo.nickName}}</h4>
+        <span>{{userInfo.gender == 1 ? '男' : "女"}}</span>
       </div>
     </div>
     <div class="learn_info">
       <!-- 课程信息 -->
       <div class="learn_detail">
         <h4>课程</h4>
-        <span>{{lessonInfo.totalCount}}</span>
+        <span>{{lessonInfoCon.totalCount}}</span>
       </div>
       <div class="learn_detail">
         <h4>已完成</h4>
-        <span>{{lessonInfo.finishCount}}</span>
+        <span>{{lessonInfoCon.finishCount}}</span>
       </div>
       <div class="learn_detail">
         <h4>直播订阅</h4>
-        <span>{{lessonInfo.liveCount}}</span>
+        <span>{{lessonInfoCon.liveCount}}</span>
       </div>
     </div>
     <div class="order_info">
@@ -51,11 +51,11 @@ export default {
     }
   },
   computed: {
-    user() {
+    userInfo() {
       // console.log(this.$store.getters.user);
       return this.user;
     },
-    lessonInfo() {
+    lessonInfoCon() {
       // console.log(this.$store.getters.lessonInfo);
       return this.lessonInfo;
     }
