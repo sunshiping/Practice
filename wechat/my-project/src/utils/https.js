@@ -1,12 +1,10 @@
 const https = {
   request(options = {}) {
     const { url, method, data } = options;
-
     // 加载动画
     wx.showLoading({
       title: '加载中...'
     });
-
     return new Promise((resolve, reject) => {
       wx.request({
         url,
@@ -14,7 +12,6 @@ const https = {
         data,
         success: function(res) {
           wx.hideLoading();
-
           // 判断网络
           if (res.statusCode == 404) {
             reject();
