@@ -39,9 +39,10 @@
         // 三个参数 appid secret code
         const appid = "wx686871f406673a5b";
         const secret = "e4f904d79a80efd0c478013719fe79fc";
-
+        const url ='https://api.weixin.qq.com/sns/jscode2session?appid='+ appid +'&secret='+ secret +'&js_code='+ code +'&grant_type=authorization_code';
         this.$https
           .request({
+            // url: url,
             url: this.$interfaces.getOpenid + appid + "/" + secret + "/" + code,
             method: "get"
           })
