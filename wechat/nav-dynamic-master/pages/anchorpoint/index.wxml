@@ -1,0 +1,19 @@
+<comp-nav-dynamic id='comp-nav-dynamic' module="{{module}}" bindparentTabSelect="parentTabSelect">
+  <!-- <view slot='ant-nav-slot' style='color: red;'>我是插槽</view> -->
+</comp-nav-dynamic>
+<scroll-view style='height:{{winHeight}}' scroll-y="true" class="scoll-h">
+  <block>
+    <view id='block_1' class='block_1-height'>
+    </view>
+  </block>
+  <block>
+    <view id='block_2' class='block_2-height'>
+
+    </view>
+  </block>
+  <block>
+    <view id='block_3' class='block_3-height'>
+
+    </view>
+  </block>
+</scroll-view>

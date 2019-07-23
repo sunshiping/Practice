@@ -1,0 +1,46 @@
+/* pages/anchorpoint/index.wxss */
+.nav-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 60rpx;
+  background: #fff;
+}
+.nav-top .tab-item{
+  min-width: 120rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.nav-top .active{
+  color: rgb(10, 182, 33);
+  font-weight: bold;
+}
+.scoll-h{
+  padding-top: 60rpx;
+}
+.scoll-h .block_1-height {
+  width: 100%;
+  min-height: 700px;
+  background: rgb(235, 25, 25);
+  color: #fff;
+}
+
+.scoll-h .block_2-height {
+  width: 100%;
+  min-height: 600px;
+  background: rgb(49, 133, 10);
+  color: #fff;
+}
+
+.scoll-h .block_3-height {
+  width: 100%;
+  min-height: 800px;
+  background: rgb(34, 10, 172);
+  color: #fff;
+}
